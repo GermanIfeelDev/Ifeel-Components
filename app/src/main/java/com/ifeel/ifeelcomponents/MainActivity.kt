@@ -128,7 +128,8 @@ fun InputsComponents(modifier: Modifier = Modifier) {
         HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
         PasswordTextField(
             value = inputValue,
-            onValueChange = { inputValue = it }
+            onValueChange = { inputValue = it },
+            supportingText = "Supporting text"
         )
         HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
         OutlinedTextField(

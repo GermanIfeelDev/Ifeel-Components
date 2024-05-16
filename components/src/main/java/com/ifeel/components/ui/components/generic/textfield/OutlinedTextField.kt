@@ -12,9 +12,12 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -42,14 +45,14 @@ fun OutlinedTextField(
     inputText: String? = null,
     label: String? = null,
     errorMessage: String? = null,
+    supportingText: String? = null,
     enabled: Boolean = true,
-    isFocused: Boolean = false,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    onFocusChanged: (FocusState) -> Unit = {},
-    supportingText: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable() (() -> Unit)? = null,
 ) {
+    var isFocused by rememberSaveable { mutableStateOf(false) }
+
     Column(modifier = modifier) {
         if (label != null) {
             Text(
@@ -63,7 +66,7 @@ fun OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 8.dp)
-                .onFocusChanged { onFocusChanged.invoke(it) },
+                .onFocusChanged { focusState -> isFocused = focusState.isFocused },
             trailingIcon = trailingIcon,
             singleLine = true,
             isError = isError,
@@ -90,10 +93,13 @@ fun OutlinedTextField(
                 focusedBorderColor = color_brand_primary_600,
                 unfocusedBorderColor = if (value.isNotBlank()) color_text_600 else color_text_300,
                 cursorColor = color_text_700,
-                errorBorderColor = color_danger_500
+                errorBorderColor = color_danger_500,
+                errorTextColor = color_text_700
             )
         )
-        supportingText?.invoke()
+        if (supportingText != null && isFocused) {
+            TextFieldSupportingText(text = supportingText)
+        }
         if (isError && errorMessage != null) {
             ErrorText(text = errorMessage)
         }

@@ -13,7 +13,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import com.ifeel.components.R
 import com.ifeel.components.ui.components.generic.textfield.OutlinedTextField
-import com.ifeel.components.ui.components.generic.textfield.TextFieldSupportingText
 import com.ifeel.components.ui.components.generic.textfield.ToogleIcon
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 
@@ -22,15 +21,14 @@ fun PasswordTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    isError : Boolean = false,
+    isError: Boolean = false,
     inputText: String? = null,
     label: String? = null,
     errorMessage: String? = null,
+    supportingText: String? = null,
     enabled: Boolean = true,
-    supportingText: @Composable (() -> Unit)? = null
 ) {
     var showInput by rememberSaveable { mutableStateOf(false) }
-    var isFocused by rememberSaveable { mutableStateOf(false) }
 
     OutlinedTextField(
         value = value,
@@ -39,12 +37,10 @@ fun PasswordTextField(
         inputText = inputText,
         label = label,
         errorMessage = errorMessage,
+        supportingText = supportingText,
         enabled = enabled,
-        isFocused = isFocused,
         isError = isError,
         visualTransformation = if (showInput) VisualTransformation.None else PasswordVisualTransformation(),
-        onFocusChanged = { focusState -> isFocused = focusState.isFocused },
-        supportingText = supportingText,
         trailingIcon = {
             ToogleIcon(
                 activeIcon = ImageVector.vectorResource(R.drawable.hide_input_ic),
@@ -69,9 +65,7 @@ private fun PasswordInputPreview() {
             onValueChange = { inputValue = it },
             label = "Password label",
             inputText = "Password Input Text",
-            supportingText = {
-                TextFieldSupportingText("Añadir aquí información para ayudar al usuario a entender este input")
-            }
+            supportingText = "Añadir aquí información para ayudar al usuario a entender este input"
         )
     }
 }
