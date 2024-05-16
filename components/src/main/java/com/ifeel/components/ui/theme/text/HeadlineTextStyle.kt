@@ -27,6 +27,12 @@ sealed class HeadlineTextStyle(
         lineHeight = 36.sp
     )
 
+    data object H4SemiBold : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 22.sp,
+        lineHeight = 28.sp
+    )
 
 }
 
