@@ -1,5 +1,6 @@
 package com.ifeel.components.ui.components.generic.textfield
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -53,8 +54,9 @@ fun EditableTextField(
                 cursorColor = color_text_500
             )
         )
-        if (isError && errorMessage != null) {
-            ErrorText(text = errorMessage)
+
+        AnimatedVisibility(visible = isError && errorMessage != null) {
+            ErrorText(text = errorMessage!!)
         }
     }
 }

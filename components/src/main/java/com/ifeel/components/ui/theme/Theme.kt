@@ -68,7 +68,6 @@ fun IfeelComponentsTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> darkColorScheme()
         else -> LightColorScheme
     }
     val view = LocalView.current
