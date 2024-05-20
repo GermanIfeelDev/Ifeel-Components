@@ -1,5 +1,6 @@
 package com.ifeel.components.ui.components.generic.textfield
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -97,11 +98,13 @@ fun OutlinedTextField(
                 errorTextColor = color_text_700
             )
         )
-        if (supportingText != null && isFocused) {
-            TextFieldSupportingText(text = supportingText)
+
+        AnimatedVisibility(visible = supportingText != null && isFocused) {
+            TextFieldSupportingText(text = supportingText!!)
         }
-        if (isError && errorMessage != null) {
-            ErrorText(text = errorMessage)
+
+        AnimatedVisibility(isError && errorMessage != null) {
+            ErrorText(text = errorMessage!!)
         }
     }
 }

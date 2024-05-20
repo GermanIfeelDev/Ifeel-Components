@@ -14,7 +14,7 @@ val color_text_100 = Color(0xFFE8EAED)
 val color_text_warm_700 = Color(0xFF4E4949)
 val color_text_warm_400 = Color(0xFF977E67)
 val color_text_warm_100 = Color(0xFFE9C9AB)
-val color_text_cold_500 = Color(0xFF273C66)
+val color_text_cold_500 = Color(0xFF526BA1)
 //endregion
 
 //region Brand Colors

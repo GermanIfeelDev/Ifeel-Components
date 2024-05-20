@@ -5,6 +5,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -54,7 +55,8 @@ fun PrimaryButton(
     Button(
         onClick = onClick,
         modifier = modifier
-            .defaultMinSize(minWidth = 180.dp),
+            .defaultMinSize(minWidth = 180.dp)
+            .height(44.dp),
         enabled = isEnabled,
         shape = RoundedCornerShape(6.dp),
         colors = getButtonColors(buttonType, isPressed),
