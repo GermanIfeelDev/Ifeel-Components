@@ -14,8 +14,8 @@ import com.ifeel.components.ui.theme.IfeelComponentsTheme
 
 @Composable
 fun SurveyMultipleOption(
-    options: List<QuestionMultipleOptionVO>,
-    onOptionSelected: (QuestionMultipleOptionVO) -> Unit,
+    options: List<Pair<String, Boolean>>,
+    onOptionSelected: (Pair<String, Boolean>) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -24,10 +24,10 @@ fun SurveyMultipleOption(
     ) {
         items(options) { option ->
             SurveyMultipleOptionButton(
-                text = option.value,
-                selected = option.selected,
+                text = option.first,
+                selected = option.second,
                 onSelectedChange = {
-                    onOptionSelected(option.copy(selected = it))
+                    onOptionSelected(option.copy(second = it))
                 }
             )
         }
@@ -38,14 +38,14 @@ fun SurveyMultipleOption(
 @Composable
 private fun SurveyMultipleOptionPreview() {
     val options = remember {
-        mutableStateListOf(QuestionMultipleOptionVO("Option 1"), QuestionMultipleOptionVO("Option 2"), QuestionMultipleOptionVO("Option 3"))
+        mutableStateListOf(Pair("Option 1", false), Pair("Option 2", false), Pair("Option 3", false))
     }
 
     IfeelComponentsTheme {
         SurveyMultipleOption(
             options = options,
             onOptionSelected = { selectedOption ->
-                val selectedOptionIndex = options.indexOfFirst { it.value == selectedOption.value }
+                val selectedOptionIndex = options.indexOfFirst { it.first == selectedOption.first }
 
                 if (selectedOptionIndex != -1) {
                     options[selectedOptionIndex] = selectedOption
