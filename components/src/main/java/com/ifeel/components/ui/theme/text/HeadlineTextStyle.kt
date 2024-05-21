@@ -7,6 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.ifeel.components.ui.theme.color_text_600
+import com.ifeel.components.ui.theme.recoletaFontFamily
 import com.ifeel.components.ui.theme.sofiaProFontFamily
 
 /**
@@ -31,6 +32,22 @@ sealed class HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,
         fontSize = 22.sp,
+        lineHeight = 28.sp
+    )
+
+    data object H3MediumRecoleta : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.Medium,
+        fontSize = 24.sp,
+        fontFamily = recoletaFontFamily,
+        lineHeight = 28.sp
+    )
+
+    data object H4MediumRecoleta : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.Medium,
+        fontSize = 22.sp,
+        fontFamily = recoletaFontFamily,
         lineHeight = 28.sp
     )
 

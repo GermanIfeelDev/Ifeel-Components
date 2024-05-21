@@ -25,7 +25,7 @@ import com.ifeel.components.ui.theme.color_brand_primary_700
 @Composable
 fun IconPrimaryButton(
     onClick: () -> Unit,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     enabled: Boolean = true
 ) {
     val interactionSource = remember { MutableInteractionSource() }
