@@ -28,6 +28,13 @@ sealed class HeadlineTextStyle(
         lineHeight = 36.sp
     )
 
+    data object H3Semibold : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp,
+        lineHeight = 32.sp
+    )
+
     data object H4SemiBold : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,
@@ -51,5 +58,12 @@ sealed class HeadlineTextStyle(
         lineHeight = 28.sp
     )
 
+    data object SubtitleSemibold : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        lineHeight = 24.sp
+    )
 }
+
 
