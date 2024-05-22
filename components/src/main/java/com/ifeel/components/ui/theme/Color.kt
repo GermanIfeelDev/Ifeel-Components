@@ -96,6 +96,9 @@ val color_danger_100 = Color(0xFFFFECEB)
 val color_link_500 = Color(0xFF2789FD)
 val color_link_200 = Color(0xFFC8DFFA)
 //endregion
+//region NaturalColor
+val color_white = Color(0xFFFFFFFF)
+//endregion
 //endregion
 
 //region Gradient Colors
