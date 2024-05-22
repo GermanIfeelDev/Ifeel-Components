@@ -1,9 +1,8 @@
 package com.ifeel.components.ui.components.common.survey
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -23,11 +22,11 @@ fun SurveyOption(
     modifier: Modifier = Modifier
 ) {
     val buttonHeight = if (surveyType == SurveyType.SINGLE) 80.dp else 64.dp
-    LazyColumn(
+    Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier
     ) {
-        items(options) { option ->
+        options.forEach {option ->
             SurveyOptionButton(
                 text = option.first,
                 selected = option.second,
