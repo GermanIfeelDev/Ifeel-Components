@@ -24,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.ifeel.components.R
-import com.ifeel.components.ui.components.common.survey.vo.RatingSurveyItemVO
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_200
 import com.ifeel.components.ui.theme.color_brand_primary_800
@@ -33,11 +32,11 @@ import com.ifeel.components.ui.theme.text.BodyTextStyle
 import com.ifeel.components.ui.theme.text.CaptionTextStyle
 
 @Composable
-fun RatingSurvey(
-    ratingItems: List<RatingSurveyItemVO>,
+fun ScoreSurvey(
+    ratingItems: List<Pair<String, Boolean>>,
     firstRatingDescription: String,
     lastRatingDescription: String,
-    onRatingClicked: (RatingSurveyItemVO) -> Unit,
+    onRatingClicked: (Pair<String, Boolean>) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -55,21 +54,21 @@ fun RatingSurvey(
             }
         ) {
             items(ratingItems) { item ->
-                RatingSurveyItem(
+                ScoreSurveyItem(
                     ratingItem = item,
                     onRatingClicked = onRatingClicked
                 )
             }
         }
 
-        RatingItemDescription(
+        ScoreSurveyItemDescription(
             firstRatingDescription,
             modifier = Modifier.constrainAs(initialDescriptionRating) {
                 top.linkTo(parent.top, margin = 4.dp)
                 end.linkTo(ratingList.start, margin = 14.dp)
             }
         )
-        RatingItemDescription(
+        ScoreSurveyItemDescription(
             lastRatingDescription,
             modifier = Modifier.constrainAs(lastDescriptionRating) {
                 bottom.linkTo(parent.bottom, margin = 4.dp)
@@ -80,32 +79,32 @@ fun RatingSurvey(
 
 
 @Composable
-private fun RatingSurveyItem(
-    ratingItem: RatingSurveyItemVO,
-    onRatingClicked: (RatingSurveyItemVO) -> Unit,
+private fun ScoreSurveyItem(
+    ratingItem: Pair<String, Boolean>,
+    onRatingClicked: (Pair<String, Boolean>) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         IconButton(
-            onClick = { onRatingClicked(ratingItem) },
+            onClick = { onRatingClicked(ratingItem.copy(second = !ratingItem.second)) },
             modifier = Modifier.padding(end = 14.dp).size(40.dp)
         ) {
             Icon(
-                painter = painterResource(id = if (ratingItem.selected) R.drawable.rating_survey_selected_ic else R.drawable.rating_survey_unselected_ic),
+                painter = painterResource(id = if (ratingItem.second) R.drawable.rating_survey_selected_ic else R.drawable.rating_survey_unselected_ic),
                 contentDescription = null,
                 tint = Color.Unspecified
             )
         }
 
         Text(
-            text = ratingItem.rating.toString(),
+            text = ratingItem.first,
             style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = color_text_cold_500)
         )
     }
 }
 
 @Composable
-private fun RatingItemDescription(description: String, modifier: Modifier = Modifier) {
+private fun ScoreSurveyItemDescription(description: String, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(6.dp))
@@ -121,32 +120,26 @@ private fun RatingItemDescription(description: String, modifier: Modifier = Modi
 
 @Preview(showBackground = true, backgroundColor = 0xFFE37C67)
 @Composable
-private fun RatingSurveyPreview() {
-    var ratingItems = remember {
-        mutableStateListOf(
-            RatingSurveyItemVO(1),
-            RatingSurveyItemVO(2),
-            RatingSurveyItemVO(3),
-            RatingSurveyItemVO(4),
-            RatingSurveyItemVO(5)
-        )
+private fun ScoreSurveyPreview() {
+    val ratingItems = remember {
+        mutableStateListOf(Pair("1", false), Pair("2", false), Pair("3", false), Pair("4", false), Pair("5", false))
     }
 
     IfeelComponentsTheme {
-        RatingSurvey(
+        ScoreSurvey(
             ratingItems = ratingItems,
             firstRatingDescription = "Low",
             lastRatingDescription = "High",
-            onRatingClicked = {ratingClicked ->
-                val index = ratingItems.indexOf(ratingClicked)
+            onRatingClicked = { ratingClicked ->
+                val index = ratingItems.indexOfFirst { it.first == ratingClicked.first }
 
                 if (index != -1) {
 
                     for (i in ratingItems.indices) { //TODO CAMBIAR POR         ratingItems.replaceAll { it.copy(selected = false) } cuando subamos la min api a 24
-                        ratingItems[i] = ratingItems[i].copy(selected = false)
+                        ratingItems[i] = ratingItems[i].copy(second = false)
                     }
 
-                    ratingItems[index] = ratingClicked.copy(selected = ratingClicked.selected.not())
+                    ratingItems[index] = ratingClicked
                 }
             }
         )
