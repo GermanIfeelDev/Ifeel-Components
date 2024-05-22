@@ -3,11 +3,10 @@ package com.ifeel.components.ui.components.common.survey
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -39,11 +38,10 @@ fun ScoreSurvey(
     onRatingClicked: (Pair<String, Boolean>) -> Unit,
     modifier: Modifier = Modifier
 ) {
-
-    ConstraintLayout(modifier = modifier) {
+    ConstraintLayout(modifier = modifier.fillMaxWidth()) {
         val (initialDescriptionRating, lastDescriptionRating, ratingList) = createRefs()
 
-        LazyColumn(
+        Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.constrainAs(ratingList) {
@@ -53,9 +51,9 @@ fun ScoreSurvey(
                 end.linkTo(parent.end)
             }
         ) {
-            items(ratingItems) { item ->
+            ratingItems.forEach {
                 ScoreSurveyItem(
-                    ratingItem = item,
+                    ratingItem = it,
                     onRatingClicked = onRatingClicked
                 )
             }
@@ -84,10 +82,19 @@ private fun ScoreSurveyItem(
     onRatingClicked: (Pair<String, Boolean>) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
+    ConstraintLayout(modifier = modifier) {
+        val (ratingIcon, ratingText) = createRefs()
         IconButton(
             onClick = { onRatingClicked(ratingItem.copy(second = !ratingItem.second)) },
-            modifier = Modifier.padding(end = 14.dp).size(40.dp)
+            modifier = Modifier
+                .padding(end = 14.dp)
+                .size(40.dp)
+                .constrainAs(ratingIcon) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
         ) {
             Icon(
                 painter = painterResource(id = if (ratingItem.second) R.drawable.rating_survey_selected_ic else R.drawable.rating_survey_unselected_ic),
@@ -98,7 +105,12 @@ private fun ScoreSurveyItem(
 
         Text(
             text = ratingItem.first,
-            style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = color_text_cold_500)
+            style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = color_text_cold_500),
+            modifier = Modifier.constrainAs(ratingText) {
+                top.linkTo(ratingIcon.top)
+                bottom.linkTo(ratingIcon.bottom)
+                start.linkTo(ratingIcon.end)
+            }
         )
     }
 }
@@ -122,7 +134,7 @@ private fun ScoreSurveyItemDescription(description: String, modifier: Modifier =
 @Composable
 private fun ScoreSurveyPreview() {
     val ratingItems = remember {
-        mutableStateListOf(Pair("1", false), Pair("2", false), Pair("3", false), Pair("4", false), Pair("5", false))
+        mutableStateListOf(Pair("0 not at all", false), Pair("2", false), Pair("3 a little", false), Pair("4", false), Pair("5 heavily", false))
     }
 
     IfeelComponentsTheme {
