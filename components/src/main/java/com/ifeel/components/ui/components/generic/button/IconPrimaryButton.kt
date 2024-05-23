@@ -4,14 +4,13 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonColors
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -32,7 +31,7 @@ fun IconPrimaryButton(
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
 
-    Button(
+    IconButton(
         onClick = onClick,
         interactionSource = interactionSource,
         colors = getButtonColors(isPressed = isPressed),
@@ -42,7 +41,6 @@ fun IconPrimaryButton(
         Icon(
             painter = painterResource(id = R.drawable.primary_button_ic),
             contentDescription = null,
-            modifier = Modifier.align(Alignment.CenterVertically)
         )
     }
 
@@ -57,10 +55,10 @@ private fun IconPrimaryButtonPreview() {
 }
 
 @Composable
-private fun getButtonColors(isPressed: Boolean): ButtonColors {
+private fun getButtonColors(isPressed: Boolean): IconButtonColors {
     val containerColor = if (isPressed) color_brand_primary_700 else color_brand_primary_600
 
-    return ButtonDefaults.buttonColors(
+    return IconButtonDefaults.iconButtonColors(
         containerColor = containerColor,
         disabledContainerColor = color_brand_primary_200,
         contentColor = Color.White,
