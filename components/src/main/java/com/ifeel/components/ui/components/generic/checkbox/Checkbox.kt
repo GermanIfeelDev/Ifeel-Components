@@ -1,6 +1,8 @@
 package com.ifeel.components.ui.components.generic.checkbox
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,7 +28,7 @@ fun Checkbox(
         inactiveIcon = ImageVector.vectorResource(id = R.drawable.unchecked_checkbox_ic),
         checked = checked,
         onCheckedChange = onCheckedChange,
-        modifier = modifier
+        modifier = modifier.size(25.dp)
     )
 }
 
