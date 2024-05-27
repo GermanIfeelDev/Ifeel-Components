@@ -3,12 +3,15 @@ package com.ifeel.components.ui.components.common.survey
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -46,34 +49,40 @@ fun ScoreSurvey(
         LazyColumn(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.constrainAs(ratingList) {
-                top.linkTo(parent.top)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            }
+            modifier = Modifier
+                .fillMaxWidth()
+                .constrainAs(ratingList) {
+                    top.linkTo(parent.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
         ) {
-            items(ratingItems) {
-                ScoreSurveyItem(
-                    ratingItem = it,
-                    onRatingClicked = onRatingClicked
-                )
+            itemsIndexed(ratingItems) { index, item ->
+                when (index) {
+                    0 -> {
+                        ScoreSurveyItem(
+                            ratingItem = item,
+                            onRatingClicked = onRatingClicked,
+                            ratingDescriptionString = firstRatingDescription,
+                            modifier = Modifier
+                        )
+                    }
+                    ratingItems.size - 1 -> {
+                        ScoreSurveyItem(
+                            ratingItem = item,
+                            onRatingClicked = onRatingClicked,
+                            ratingDescriptionString = lastRatingDescription
+                        )
+                    }
+                    else -> {
+                        ScoreSurveyItem(
+                            ratingItem = item,
+                            onRatingClicked = onRatingClicked
+                        )
+                    }
+                }
             }
         }
-
-        ScoreSurveyItemDescription(
-            firstRatingDescription,
-            modifier = Modifier.constrainAs(initialDescriptionRating) {
-                top.linkTo(ratingList.top, margin = 4.dp)
-                end.linkTo(ratingList.start, margin = 12.dp)
-            }
-        )
-
-        ScoreSurveyItemDescription(
-            lastRatingDescription,
-            modifier = Modifier.constrainAs(lastDescriptionRating) {
-                bottom.linkTo(ratingList.bottom, margin = 4.dp)
-                end.linkTo(ratingList.start, margin = 12.dp)
-            })
     }
 }
 
@@ -83,25 +92,40 @@ private fun ScoreSurveyItem(
     ratingItem: Pair<String, Boolean>,
     onRatingClicked: (Pair<String, Boolean>) -> Unit,
     modifier: Modifier = Modifier,
+    ratingDescriptionString: String? = null,
 ) {
     ConstraintLayout(modifier = modifier) {
-        val (ratingIcon, ratingText) = createRefs()
+        val (ratingIcon, ratingText, ratingDescription) = createRefs()
+
         IconButton(
             onClick = { onRatingClicked(ratingItem.copy(second = !ratingItem.second)) },
             modifier = Modifier
                 .padding(end = 14.dp)
                 .size(40.dp)
+                .wrapContentSize()
                 .constrainAs(ratingIcon) {
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
                     end.linkTo(parent.end)
+                    start.linkTo(parent.start)
                 }
-                .wrapContentSize()
+
         ) {
             Icon(
                 painter = painterResource(id = if (ratingItem.second) R.drawable.rating_survey_selected_ic else R.drawable.rating_survey_unselected_ic),
                 contentDescription = null,
                 tint = Color.Unspecified
+            )
+        }
+
+        ratingDescriptionString?.let {
+            ScoreSurveyItemDescription(
+                ratingDescriptionString,
+                modifier = Modifier.constrainAs(ratingDescription) {
+                    top.linkTo(ratingIcon.top)
+                    bottom.linkTo(ratingIcon.bottom)
+                    end.linkTo(ratingIcon.start, margin = 12.dp)
+                }
             )
         }
 
