@@ -36,31 +36,33 @@ fun ErrorDialog(
     Dialog(
         onDismissRequest = onDismissRequest,
     ) {
-        Card(
-            colors = CardDefaults.cardColors(containerColor = Color.White) ,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)
-        ) {
-            Column(
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
+        Box(modifier = Modifier.fillMaxWidth()
+            .padding(horizontal = 20.dp)) {
+            Card(
+                colors = CardDefaults.cardColors(containerColor = Color.White) ,
+                modifier = Modifier.align(Alignment.Center)
+
             ) {
-                Text(
-                    text = title,
-                    style = TitleTextStyle.TitleSemiBold.toTextStyle().copy(textAlign = TextAlign.Center),
-                    modifier = Modifier.padding(top = 28.dp, start = 32.dp, end = 32.dp),
-                )
-                Text(
-                    text = description,
-                    style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = Color.Black, textAlign = TextAlign.Center),
-                    modifier = Modifier.padding(top = 12.dp, start = 32.dp, end = 32.dp)
-                )
-                PrimaryButton(
-                    text = acceptBtnText,
-                    onClick = onDismissRequest,
-                    modifier = Modifier.padding(vertical = 32.dp)
-                )
+                Column(
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Text(
+                        text = title,
+                        style = TitleTextStyle.TitleSemiBold.toTextStyle().copy(textAlign = TextAlign.Center),
+                        modifier = Modifier.padding(top = 28.dp, start = 32.dp, end = 32.dp),
+                    )
+                    Text(
+                        text = description,
+                        style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = Color.Black, textAlign = TextAlign.Center),
+                        modifier = Modifier.padding(top = 12.dp, start = 32.dp, end = 32.dp)
+                    )
+                    PrimaryButton(
+                        text = acceptBtnText,
+                        onClick = onDismissRequest,
+                        modifier = Modifier.padding(vertical = 32.dp)
+                    )
+                }
             }
         }
     }
