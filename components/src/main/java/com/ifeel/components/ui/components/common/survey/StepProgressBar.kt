@@ -26,8 +26,8 @@ import com.ifeel.components.ui.theme.color_brand_primary_600
 @Composable
 fun StepProgressBar(totalProgress: Int, currentProgress: Int, modifier: Modifier = Modifier) {
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = modifier.fillMaxWidth()) {
-        for (i in 0..totalProgress) {
-            StepProgress(enabled = currentProgress > i, modifier = Modifier.weight(1f))
+        for (i in 1..totalProgress) {
+            StepProgress(enabled = currentProgress >= i, modifier = Modifier.weight(1f))
         }
     }
 }
@@ -50,7 +50,7 @@ private fun StepProgress(enabled: Boolean, modifier: Modifier = Modifier) {
 private fun StepProgressBarPreview() {
     val totalProgress = 5
     var currentProgress by rememberSaveable {
-        mutableIntStateOf(0)
+        mutableIntStateOf(1)
     }
 
     IfeelComponentsTheme {
@@ -60,11 +60,11 @@ private fun StepProgressBarPreview() {
                 currentProgress = currentProgress,
                 modifier = Modifier.padding(horizontal = 12.dp)
             )
-            Button(onClick = { if ( currentProgress <= totalProgress) currentProgress++ }) {
+            Button(onClick = { if ( currentProgress != totalProgress) currentProgress++ }) {
                 Text(text = "Increase")
             }
 
-            Button(onClick = { if ( currentProgress != 0) currentProgress-- }) {
+            Button(onClick = { if ( currentProgress != 1) currentProgress-- }) {
                 Text(text = "Decrease")
             }
 
