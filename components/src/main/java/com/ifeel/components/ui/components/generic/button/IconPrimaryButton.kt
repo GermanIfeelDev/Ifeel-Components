@@ -1,5 +1,6 @@
 package com.ifeel.components.ui.components.generic.button
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,7 @@ import com.ifeel.components.ui.theme.color_brand_primary_700
 fun IconPrimaryButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    @DrawableRes resourceId: Int = R.drawable.primary_button_ic,
     enabled: Boolean = true
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -39,7 +41,7 @@ fun IconPrimaryButton(
         modifier = modifier.size(44.dp)
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.primary_button_ic),
+            painter = painterResource(id = resourceId),
             contentDescription = null,
         )
     }

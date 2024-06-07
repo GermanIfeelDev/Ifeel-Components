@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -155,7 +155,7 @@ private fun ExposedDropdownMenuItem(
                 ) {
                     Text(text = text, style = ButtonTextStyle.ButtonDefaultRegular.toTextStyle())
                 }
-                HorizontalDivider(color = color_text_200)
+                Divider(color = color_text_200)
             }
         },
         onClick = onClick,
