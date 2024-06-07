@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,7 +35,7 @@ fun StepProgressBar(totalProgress: Int, currentProgress: Int, modifier: Modifier
 @Composable
 private fun StepProgress(enabled: Boolean, modifier: Modifier = Modifier) {
     val color = if (enabled) color_brand_primary_600 else color_brand_primary_100
-    HorizontalDivider(
+    Divider(
         color = color, thickness = 4.dp, modifier = modifier
             .wrapContentWidth()
             .clip(
