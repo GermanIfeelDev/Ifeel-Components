@@ -15,6 +15,14 @@ import com.ifeel.components.ui.theme.color_background_5
 import com.ifeel.components.ui.theme.color_background_6
 import com.ifeel.components.ui.theme.text.CaptionTextStyle
 
+/**
+ * Displays a date text within a styled box.
+ *
+ * For the design details, refer to the [Maccabi Figma design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=1098-13555&t=y1FUdrSyqexAwBMO-4).
+ *
+ * @param text The text to display, typically a date.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @Composable
 internal fun ChatDateText(text: String, modifier: Modifier = Modifier) {
     Box(

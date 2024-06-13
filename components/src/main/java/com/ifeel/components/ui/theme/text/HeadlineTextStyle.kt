@@ -10,8 +10,16 @@ import com.ifeel.components.ui.theme.color_text_600
 import com.ifeel.components.ui.theme.recoletaFontFamily
 import com.ifeel.components.ui.theme.sofiaProFontFamily
 
+
 /**
- * Germandoc
+ * Sealed class representing different text styles for headlines used in the application.
+ *
+ * @property color
+ * @property fontSize
+ * @property lineHeight
+ * @property fontWeight Defaults to [FontWeight.Normal].
+ * @property fontFamily Defaults to [sofiaProFontFamily].
+ * @property fontStyle Defaults to [FontStyle.Normal].
  */
 sealed class HeadlineTextStyle(
     color: Color,
@@ -21,6 +29,13 @@ sealed class HeadlineTextStyle(
     fontFamily: FontFamily = sofiaProFontFamily,
     fontStyle: FontStyle = FontStyle.Normal
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
+
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 28sp.
+     * @property lineHeight 36sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
     data object H2SemiBold : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,
@@ -28,6 +43,12 @@ sealed class HeadlineTextStyle(
         lineHeight = 36.sp
     )
 
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 24sp.
+     * @property lineHeight 32sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
     data object H3Semibold : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,
@@ -35,6 +56,12 @@ sealed class HeadlineTextStyle(
         lineHeight = 32.sp
     )
 
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 22sp.
+     * @property lineHeight 28sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
     data object H4SemiBold : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,
@@ -42,6 +69,13 @@ sealed class HeadlineTextStyle(
         lineHeight = 28.sp
     )
 
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 24sp.
+     * @property lineHeight 28sp.
+     * @property fontWeight [FontWeight.Medium].
+     * @property fontFamily [recoletaFontFamily].
+     */
     data object H3MediumRecoleta : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.Medium,
@@ -50,6 +84,13 @@ sealed class HeadlineTextStyle(
         lineHeight = 28.sp
     )
 
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 22sp.
+     * @property lineHeight 28sp.
+     * @property fontWeight [FontWeight.Medium].
+     * @property fontFamily [recoletaFontFamily].
+     */
     data object H4MediumRecoleta : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.Medium,
@@ -58,6 +99,12 @@ sealed class HeadlineTextStyle(
         lineHeight = 28.sp
     )
 
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 18sp.
+     * @property lineHeight 24sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
     data object SubtitleSemibold : HeadlineTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,

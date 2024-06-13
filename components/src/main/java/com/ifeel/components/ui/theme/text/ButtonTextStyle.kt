@@ -8,6 +8,16 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.ifeel.components.ui.theme.sofiaProFontFamily
 
+/**
+ * Sealed class representing different text styles for buttons used in the application.
+ *
+ * @property fontSize
+ * @property lineHeight
+ * @property color Defaults to [Color.Unspecified].
+ * @property fontWeight Defaults to [FontWeight.Normal].
+ * @property fontFamily Defaults to [sofiaProFontFamily].
+ * @property fontStyle Defaults to [FontStyle.Normal].
+ */
 sealed class ButtonTextStyle(
     fontSize: TextUnit,
     lineHeight: TextUnit,
@@ -17,12 +27,21 @@ sealed class ButtonTextStyle(
     fontStyle: FontStyle = FontStyle.Normal
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
 
+    /**
+     * @property fontSize 16sp.
+     * @property lineHeight 20sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
     data object ButtonDefaultSemiBold : ButtonTextStyle(
         fontSize = 16.sp,
         lineHeight = 20.sp,
         fontWeight = FontWeight.SemiBold,
     )
 
+    /**
+     * @property fontSize 16sp.
+     * @property lineHeight 20sp.
+     */
     data object ButtonDefaultRegular : ButtonTextStyle(
         fontSize = 16.sp,
         lineHeight = 20.sp,

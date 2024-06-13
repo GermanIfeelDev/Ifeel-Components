@@ -30,6 +30,18 @@ import com.ifeel.components.ui.theme.color_text_200
 import com.ifeel.components.ui.theme.color_text_500
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 
+/**
+ * Displays a simple chat input UI with a text field and a send button.
+ *
+ * For the design details, refer to the [Maccabi Figma design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=1098-13561&t=qgmumeLMnzC5RWX1-4).
+ *
+ *
+ * @param message The current value of the input message.
+ * @param onMessageChanged Lambda function invoked when the input message changes.
+ * @param hint The hint text displayed in the input field when it's empty.
+ * @param onSendMessageBtnClicked Lambda function invoked when the send button is clicked, passing the current message.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @Composable
 fun ChatSimpleInput(
     message: String,
@@ -71,7 +83,7 @@ fun ChatSimpleInput(
 
 @Composable
 @Preview
-fun ChatSimpleInputPreview() {
+private fun ChatSimpleInputPreview() {
     IfeelComponentsTheme {
         var message by rememberSaveable {
             mutableStateOf("")

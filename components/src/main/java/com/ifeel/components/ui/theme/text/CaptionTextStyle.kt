@@ -9,7 +9,17 @@ import androidx.compose.ui.unit.sp
 import com.ifeel.components.ui.theme.color_text_600
 import com.ifeel.components.ui.theme.sofiaProFontFamily
 
-sealed class CaptionTextStyle (
+/**
+ * Sealed class representing different text styles for captions used in the application.
+ *
+ * @property color
+ * @property fontSize
+ * @property lineHeight
+ * @property fontWeight Defaults to [FontWeight.Normal].
+ * @property fontFamily Defaults to [sofiaProFontFamily].
+ * @property fontStyle Defaults to [FontStyle.Normal].
+ */
+sealed class CaptionTextStyle(
     color: Color,
     fontSize: TextUnit,
     lineHeight: TextUnit,
@@ -17,6 +27,12 @@ sealed class CaptionTextStyle (
     fontFamily: FontFamily = sofiaProFontFamily,
     fontStyle: FontStyle = FontStyle.Normal
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
+
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 12sp.
+     * @property lineHeight 16sp.
+     */
     data object Caption12Regular : CaptionTextStyle(
         color = color_text_600,
         fontSize = 12.sp,

@@ -23,6 +23,15 @@ import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_text_700
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 
+/**
+ * Displays a video session message with an icon, title, and description text.
+ *
+ * @param imageId The drawable resource ID for the icon.
+ * @param title The title of the video session.
+ * @param text The description text of the video session.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ * @param date An optional date to display above the message in [ChatDateText]
+ */
 @Composable
 fun ChatMessageVideoSession(
     @DrawableRes imageId: Int,
@@ -68,7 +77,7 @@ fun ChatMessageVideoSession(
 
 @Preview
 @Composable
-fun ChatMessageVideoSessionPreview() {
+private fun ChatMessageVideoSessionPreview() {
     IfeelComponentsTheme {
         ChatMessageVideoSession(
             imageId = R.drawable.message_status_sending_ic,

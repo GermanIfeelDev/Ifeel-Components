@@ -48,6 +48,18 @@ import com.ifeel.components.ui.theme.text.BodyTextStyle
 import com.ifeel.components.ui.theme.text.ButtonTextStyle
 import com.ifeel.components.ui.theme.text.CaptionTextStyle
 
+/**
+ * Displays a toolbar for a chat screen with user information and actions.
+ *
+ * [Design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=1182-28971&t=y1FUdrSyqexAwBMO-4)
+ *
+ * @param name The name of the user displayed in the toolbar.
+ * @param status The status of the user displayed in the toolbar.
+ * @param imageUrl The URL of the user's image displayed in a circular avatar.
+ * @param toolbarActions A list of actions to display in the toolbar dropdown menu.
+ * @param onToolbarActionClicked Lambda function invoked when a toolbar action is clicked.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChatToolbar(
@@ -154,7 +166,7 @@ fun ChatToolbar(
 
 @Preview
 @Composable
-fun ChatToolbarPreview() {
+private fun ChatToolbarPreview() {
     IfeelComponentsTheme {
         ChatToolbar(
             name = "Paco",
