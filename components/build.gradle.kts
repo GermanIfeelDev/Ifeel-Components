@@ -39,32 +39,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-//    publishing {
-//        singleVariant("release") {
-//            withSourcesJar()
-//        }
-//    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
-
-//publishing {
-//    publications {
-//        register<MavenPublication>("release") {
-//            groupId = "com.ifeel"
-//            artifactId = "components"
-//            version = "1.0"
-//            artifact("$buildDir/outputs/aar/components-debug.aar")
-//
-//            afterEvaluate {
-//                from(components["release"])
-//            }
-//        }
-//    }
-//
-//    repositories {
-//        name = "GitHubPackages"
-//        url = uri("https://maven.pkg.github.com/GermanIfeelDev/Ifeel-Components")
-//    }
-//}
 
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
@@ -79,4 +60,18 @@ dependencies {
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.3.0")
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.GermanIfeelDev"
+            artifactId = "Ifeel-Components"
+            version = "0.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
