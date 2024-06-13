@@ -56,15 +56,17 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.3.0")
 }
 
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.GermanIfeelDev"
-            artifactId = "Ifeel-Components"
-            version = "0.0.0"
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                groupId = "com.github.GermanIfeelDev"
+                artifactId = "Ifeel-Components"
+                version = "0.0.0"
 
-            afterEvaluate {
-                from(components["release"])
+                afterEvaluate {
+                    from(components["release"])
+                }
             }
         }
     }
