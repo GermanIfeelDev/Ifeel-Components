@@ -9,6 +9,16 @@ import androidx.compose.ui.unit.sp
 import com.ifeel.components.ui.theme.color_text_600
 import com.ifeel.components.ui.theme.sofiaProFontFamily
 
+/**
+ * Sealed class representing different text styles for titles used in the application.
+ *
+ * @property color
+ * @property fontSize
+ * @property lineHeight
+ * @property fontWeight Defaults to [FontWeight.Normal].
+ * @property fontFamily Defaults to [sofiaProFontFamily].
+ * @property fontStyle Defaults to [FontStyle.Normal].
+ */
 sealed class TitleTextStyle(
     color: Color,
     fontSize: TextUnit,
@@ -18,6 +28,12 @@ sealed class TitleTextStyle(
     fontStyle: FontStyle = FontStyle.Normal
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
 
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 20sp.
+     * @property lineHeight 24sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
     data object TitleSemiBold : TitleTextStyle(
         color = color_text_600,
         fontWeight = FontWeight.SemiBold,

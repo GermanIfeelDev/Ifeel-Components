@@ -35,6 +35,17 @@ import com.ifeel.components.ui.theme.color_text_cold_500
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 import com.ifeel.components.ui.theme.text.CaptionTextStyle
 
+/**
+ * Displays a survey for scoring items with descriptions for the first and last rating items.
+ *
+ * [Design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=798-13199&t=y1FUdrSyqexAwBMO-4)
+ *
+ * @param ratingItems The list of rating items, each represented by a Pair of text and a boolean indicating if it's selected.
+ * @param firstRatingDescription The description string for the first rating item.
+ * @param lastRatingDescription The description string for the last rating item.
+ * @param onRatingClicked Lambda function invoked when a rating item is clicked.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @Composable
 fun ScoreSurvey(
     ratingItems: List<Pair<String, Boolean>>,
@@ -44,7 +55,7 @@ fun ScoreSurvey(
     modifier: Modifier = Modifier
 ) {
     ConstraintLayout(modifier = modifier.fillMaxWidth()) {
-        val (initialDescriptionRating, lastDescriptionRating, ratingList) = createRefs()
+        val (ratingList) = createRefs()
 
         LazyColumn(
             horizontalAlignment = Alignment.CenterHorizontally,

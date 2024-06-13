@@ -23,6 +23,14 @@ import com.ifeel.components.ui.theme.text.CaptionTextStyle
 private val messageShapeDp = 22.dp
 private val contentMessageHorizontalPaddingUnit = 16.dp
 
+/**
+ * Displays a chat message from another user, optionally including a date.
+ *
+ * @param text The message text to display.
+ * @param sendOn The time the message was sent.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ * @param date An optional date to display above the message in a [ChatDateText]
+ */
 @Composable
 fun ChatMessageOther(
     text: String,
@@ -83,13 +91,11 @@ fun ChatMessageOther(
             )
         }
     }
-
-
 }
 
 @Preview
 @Composable
-fun ChatMessageOtherPreview() {
+private fun ChatMessageOtherPreview() {
     ChatMessageOther(
         text = "Welcome to ifeel, I am your personal agent and my role is to help you to find your find your plan",
         sendOn = "10:00",

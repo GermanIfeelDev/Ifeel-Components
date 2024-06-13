@@ -17,6 +17,16 @@ enum class SurveyType {
     SINGLE, MULTIPLE
 }
 
+/**
+ * Displays a list of survey options as buttons in a vertical list.
+ *
+ * [Design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=798-13106&t=y1FUdrSyqexAwBMO-4)
+ *
+ * @param options The list of survey options, each represented by a Pair of text and a boolean indicating if it's selected.
+ * @param onOptionSelected Lambda function invoked when an option is selected or deselected.
+ * @param surveyType The type of survey options layout.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @Composable
 fun SurveyOption(
     options: List<Pair<String, Boolean>>,

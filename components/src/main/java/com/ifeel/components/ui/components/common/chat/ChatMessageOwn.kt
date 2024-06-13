@@ -29,6 +29,16 @@ import com.ifeel.components.ui.theme.text.CaptionTextStyle
 private val messageShapeDp = 22.dp
 private val contentMessageHorizontalPaddingUnit = 16.dp
 
+/**
+ * Displays a chat message sent by the user, optionally including a date.
+ *
+ * @param text The message text to display.
+ * @param sendOn The time the message was sent.
+ * @param isSaved Indicates if the message is saved.
+ * @param isPending Indicates if the message is pending.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ * @param date An optional date to display above the message in [ChatDateText] composable.
+ */
 @Composable
 fun ChatMessageOwn(
     text: String,
@@ -96,7 +106,6 @@ fun ChatMessageOwn(
             }
         }
     }
-
 }
 
 @DrawableRes
@@ -111,7 +120,7 @@ private fun getStatusMessageIcon(isSaved: Boolean, isPending: Boolean): Int = if
 
 @Preview
 @Composable
-fun ChatMessageOwnPreview() {
+private fun ChatMessageOwnPreview() {
     ChatMessageOwn(
         text = "Welcome to ifeel, I am your personal agent and my role is to help you to find your find your plan",
         sendOn = "10:00",

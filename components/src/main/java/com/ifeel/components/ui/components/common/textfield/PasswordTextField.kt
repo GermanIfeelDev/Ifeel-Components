@@ -15,7 +15,22 @@ import com.ifeel.components.R
 import com.ifeel.components.ui.components.generic.textfield.OutlinedTextField
 import com.ifeel.components.ui.components.generic.textfield.ToogleIcon
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
-
+/**
+ * Displays an input field for entering a password with optional error state, label, error message,
+ * supporting text, and toggle visibility button for showing/hiding the password.
+ *
+ * [Design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=798-12151&t=uX8Ux4vrVFXEpSC5-4)
+ *
+ * @param value The current value of the password input field.
+ * @param onValueChange Lambda function invoked when the value of the input field changes.
+ * @param modifier Optional modifier for this layout. Defaults to Modifier.
+ * @param isError Flag indicating if the input field should display an error state.
+ * @param inputText Optional text content type for the input field.
+ * @param label Optional label text displayed above the input field.
+ * @param errorMessage Optional error message text displayed when isError is true.
+ * @param supportingText Optional supporting text displayed below the input field.
+ * @param enabled Flag indicating if the input field is enabled for user interaction. Defaults to true.
+ */
 @Composable
 fun PasswordTextField(
     value: String,

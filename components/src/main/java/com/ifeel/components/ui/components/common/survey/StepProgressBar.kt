@@ -23,6 +23,15 @@ import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_100
 import com.ifeel.components.ui.theme.color_brand_primary_600
 
+/**
+ * Displays a step progress bar composed of individual steps.
+ *
+ * [Design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=798-13118&t=y1FUdrSyqexAwBMO-4)
+ *
+ * @param totalProgress The total number of steps in the progress bar.
+ * @param currentProgress The current progress, indicating how many steps are enabled.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @Composable
 fun StepProgressBar(totalProgress: Int, currentProgress: Int, modifier: Modifier = Modifier) {
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = modifier.fillMaxWidth()) {

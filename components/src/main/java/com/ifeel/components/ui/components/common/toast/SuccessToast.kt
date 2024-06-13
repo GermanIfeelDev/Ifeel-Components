@@ -21,6 +21,14 @@ import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_success_200
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 
+/**
+ * Displays a success toast message with an icon and text.
+ *
+ * [Design](https://www.figma.com/design/7GJjL34sYDK9gXPX5RRjmB/Maccabi?node-id=1182-29259&t=uX8Ux4vrVFXEpSC5-4)
+ *
+ * @param text The text content of the success toast.
+ * @param modifier Modifier for this layout. Defaults to Modifier.
+ */
 @Composable
 fun SuccessToast(text: String, modifier: Modifier = Modifier) {
     Row(
