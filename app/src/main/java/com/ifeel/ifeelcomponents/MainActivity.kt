@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TextComponents(modifier: Modifier = Modifier) {
     Column {
-        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
         Text(
             text = "We can create text styles in 3 different ways.\n" +
                     "1. Using the objects in the library, which are based on the Ifeel Figma System\n" +
@@ -116,7 +116,7 @@ fun TextComponents(modifier: Modifier = Modifier) {
                 fontSize = 20.sp
             ),
         )
-        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
     }
 }
 
@@ -125,19 +125,19 @@ fun InputsComponents(modifier: Modifier = Modifier) {
     var inputValue by rememberSaveable { mutableStateOf("") }
 
     Column {
-        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
         PasswordTextField(
             value = inputValue,
             onValueChange = { inputValue = it },
             supportingText = "Supporting text"
         )
-        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
         OutlinedTextField(
             value = inputValue,
             onValueChange = { inputValue = it },
             label = "Email"
         )
-        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
         EditableTextField(
             value = inputValue,
             onValueChange = { inputValue = it },
