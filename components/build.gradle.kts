@@ -62,7 +62,7 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "com.github.GermanIfeelDev"
                 artifactId = "Ifeel-Components"
-                version = "1.0.0"
+                version = "1.1.0"
 
                 afterEvaluate {
                     from(components["release"])
