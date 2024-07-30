@@ -49,7 +49,7 @@ fun ToolTipText(text: String, modifier: Modifier = Modifier) {
             imageVector = ImageVector.vectorResource(id = R.drawable.tooltip_polygion_ic),
             contentDescription = null,
             modifier = Modifier.constrainAs(tooltipPolygon) {
-                start.linkTo(tooltipText.start, margin = 18.dp)
+                end.linkTo(tooltipText.end, margin = 18.dp)
                 top.linkTo(tooltipText.bottom, margin = (-6).dp)
             },
             tint = Color.Unspecified
