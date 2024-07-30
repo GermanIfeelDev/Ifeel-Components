@@ -62,8 +62,8 @@ fun WhatsappButtonWithTooltip(onClick: () -> Unit, descriptionText: String, modi
         showTooltipText = false
     }
 
-    AnimatedVisibility(visible = showWhatsappBtn, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec())) {
-        Column(horizontalAlignment = Alignment.Start, modifier = modifier) {
+    AnimatedVisibility(visible = showWhatsappBtn, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec()), modifier = modifier) {
+        Column(horizontalAlignment = Alignment.Start) {
             AnimatedVisibility(visible = showTooltipText, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec())) {
                 if (showTooltipText) {
                     ToolTipText(descriptionText)
