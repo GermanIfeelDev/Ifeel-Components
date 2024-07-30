@@ -63,7 +63,7 @@ fun WhatsappButtonWithTooltip(onClick: () -> Unit, descriptionText: String, modi
     }
 
     AnimatedVisibility(visible = showWhatsappBtn, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec()), modifier = modifier) {
-        Column(horizontalAlignment = Alignment.Start) {
+        Column(horizontalAlignment = Alignment.End) {
             AnimatedVisibility(visible = showTooltipText, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec())) {
                 if (showTooltipText) {
                     ToolTipText(descriptionText)
@@ -93,7 +93,7 @@ fun WhatsappButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
     Button(
         onClick = onClick,
         modifier = modifier.size(48.dp),
-        shape = RoundedCornerShape(topEnd = 24.dp, bottomEnd = 24.dp),
+        shape = RoundedCornerShape(topStart = 24.dp, bottomStart = 24.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = color_brand_primary_800
         ),
