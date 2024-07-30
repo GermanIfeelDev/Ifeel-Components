@@ -1,6 +1,8 @@
 package com.ifeel.components.ui.components.common.button
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.KeyframesSpec
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
@@ -30,6 +32,8 @@ import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_800
 import kotlinx.coroutines.delay
 
+private const val ANIMATION_DURATION = 300
+
 /**
  * A composable function that displays a WhatsApp button with an optional tooltip. The button and tooltip appear
  * with a delay and fade in/out animations.
@@ -58,9 +62,9 @@ fun WhatsappButtonWithTooltip(onClick: () -> Unit, descriptionText: String, modi
         showTooltipText = false
     }
 
-    AnimatedVisibility(visible = showWhatsappBtn, enter = fadeIn(), exit = fadeOut()) {
+    AnimatedVisibility(visible = showWhatsappBtn, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec())) {
         Column(horizontalAlignment = Alignment.Start, modifier = modifier) {
-            AnimatedVisibility(visible = showTooltipText) {
+            AnimatedVisibility(visible = showTooltipText, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec())) {
                 if (showTooltipText) {
                     ToolTipText(descriptionText)
                 }
@@ -72,6 +76,10 @@ fun WhatsappButtonWithTooltip(onClick: () -> Unit, descriptionText: String, modi
         }
 
     }
+}
+
+private fun getAnimationSpec(): KeyframesSpec<Float> = keyframes {
+    this.durationMillis = ANIMATION_DURATION
 }
 
 /**
