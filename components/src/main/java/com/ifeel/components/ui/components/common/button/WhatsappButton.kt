@@ -5,9 +5,13 @@ import androidx.compose.animation.core.KeyframesSpec
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -54,17 +58,25 @@ fun WhatsappButtonWithTooltip(onClick: () -> Unit, descriptionText: String, modi
     LaunchedEffect(key1 = Unit) {
         delay(2000)
         showWhatsappBtn = true
-    }
-    LaunchedEffect(key1 = Unit) {
-        delay(3000)
+        delay(1000) // Delay before showing the tooltip
         showTooltipText = true
-        delay(3000)
+        delay(3000) // Tooltip visibility duration
         showTooltipText = false
     }
 
-    AnimatedVisibility(visible = showWhatsappBtn, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec()), modifier = modifier) {
-        Column(horizontalAlignment = Alignment.End) {
-            AnimatedVisibility(visible = showTooltipText, enter = fadeIn(animationSpec = getAnimationSpec()), exit = fadeOut(animationSpec = getAnimationSpec())) {
+    AnimatedVisibility(
+        visible = showWhatsappBtn,
+        enter = fadeIn(animationSpec = getAnimationSpec()),
+        exit = fadeOut(animationSpec = getAnimationSpec()),
+        modifier = modifier
+            .defaultMinSize(minHeight = 110.dp) //Con esto evitamos el movimiento del botón de Whatsapp cuando se muestra el tooltip
+    ) {
+        Column(verticalArrangement = Arrangement.Bottom, horizontalAlignment = Alignment.End) {
+            AnimatedVisibility(
+                visible = showTooltipText,
+                enter = fadeIn(animationSpec = getAnimationSpec()),
+                exit = fadeOut(animationSpec = getAnimationSpec())
+            ) {
                 if (showTooltipText) {
                     ToolTipText(descriptionText)
                 }
@@ -127,10 +139,14 @@ private fun WhatsappButtonPreview() {
 @Composable
 private fun WhatsappButtonTooltipPreview() {
     IfeelComponentsTheme {
-        WhatsappButtonWithTooltip(
-            onClick = {},
-            descriptionText = "¿Need help? Contact Customer Support",
-            modifier = Modifier.padding(12.dp)
-        )
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Red)) {
+            WhatsappButtonWithTooltip(
+                onClick = {},
+                descriptionText = "¿Need help? Contact Customer Support",
+                modifier = Modifier.align(Alignment.CenterEnd)
+            )
+        }
     }
 }
