@@ -119,4 +119,8 @@ internal val color_gradient_6_end = Color(0xFFFAFDFF)
 //region Overlay
 val color_overlay_color = Color(0f,0f,0f,0.5f)
 //endregion
+
+//region Other Colors
+val whatsapp_color = Color(0xFF4FD062)
+//endregion
 //endregion
