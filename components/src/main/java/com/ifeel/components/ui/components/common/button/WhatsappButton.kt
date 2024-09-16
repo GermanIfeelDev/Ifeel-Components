@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
 import com.ifeel.components.ui.components.common.text.ToolTipText
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
-import com.ifeel.components.ui.theme.color_brand_primary_800
+import com.ifeel.components.ui.theme.whatsapp_color
 import kotlinx.coroutines.delay
 
 private const val ANIMATION_DURATION = 300
@@ -107,7 +107,7 @@ fun WhatsappButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
         modifier = modifier.size(48.dp),
         shape = RoundedCornerShape(topStart = 24.dp, bottomStart = 24.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = color_brand_primary_800
+            containerColor = whatsapp_color
         ),
         contentPadding = PaddingValues()
     ) {
