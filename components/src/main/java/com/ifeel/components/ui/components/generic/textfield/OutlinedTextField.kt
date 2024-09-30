@@ -50,7 +50,7 @@ fun OutlinedTextField(
     enabled: Boolean = true,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    trailingIcon: @Composable() (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     var isFocused by rememberSaveable { mutableStateOf(false) }
 
@@ -61,6 +61,7 @@ fun OutlinedTextField(
                 style = BodyTextStyle.Body14Regular.toTextStyle().copy(color = color_text_400)
             )
         }
+
         OutlinedTextField(
             value = value,
             onValueChange = onValueChange,
@@ -95,7 +96,10 @@ fun OutlinedTextField(
                 unfocusedBorderColor = if (value.isNotBlank()) color_text_600 else color_text_300,
                 cursorColor = color_text_700,
                 errorBorderColor = color_danger_500,
-                errorTextColor = color_text_700
+                errorTextColor = color_text_700,
+                errorContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
+                focusedContainerColor = Color.White,
             )
         )
 

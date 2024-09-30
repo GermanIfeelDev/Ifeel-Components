@@ -2,7 +2,6 @@ package com.ifeel.components.ui.components.generic.button
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Row
@@ -29,12 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_100
-import com.ifeel.components.ui.theme.color_brand_primary_200
-import com.ifeel.components.ui.theme.color_brand_primary_600
 import com.ifeel.components.ui.theme.color_brand_primary_700
-import com.ifeel.components.ui.theme.color_brand_secondary_200
-import com.ifeel.components.ui.theme.color_brand_secondary_400
-import com.ifeel.components.ui.theme.color_brand_secondary_600
 import com.ifeel.components.ui.theme.color_text_300
 import com.ifeel.components.ui.theme.color_white
 import com.ifeel.components.ui.theme.text.ButtonTextStyle
