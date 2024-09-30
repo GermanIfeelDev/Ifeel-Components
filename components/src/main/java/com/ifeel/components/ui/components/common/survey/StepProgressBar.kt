@@ -17,10 +17,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
-import com.ifeel.components.ui.theme.color_brand_primary_100
 import com.ifeel.components.ui.theme.color_brand_primary_600
 
 /**
@@ -43,7 +43,7 @@ fun StepProgressBar(totalProgress: Int, currentProgress: Int, modifier: Modifier
 
 @Composable
 private fun StepProgress(enabled: Boolean, modifier: Modifier = Modifier) {
-    val color = if (enabled) color_brand_primary_600 else color_brand_primary_100
+    val color = if (enabled) color_brand_primary_600 else Color.White
     Divider(
         color = color, thickness = 4.dp, modifier = modifier
             .wrapContentWidth()

@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
@@ -23,12 +24,17 @@ import com.ifeel.components.ui.theme.color_brand_primary_200
 import com.ifeel.components.ui.theme.color_brand_primary_600
 import com.ifeel.components.ui.theme.color_brand_primary_700
 
+enum class IconPrimaryButtonSize(val dp: Dp) {
+    SMALL(24.dp), MEDIUM(34.dp), BIG(44.dp)
+}
+
 @Composable
 fun IconPrimaryButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes resourceId: Int = R.drawable.primary_button_ic,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    size: IconPrimaryButtonSize = IconPrimaryButtonSize.BIG
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -38,14 +44,13 @@ fun IconPrimaryButton(
         interactionSource = interactionSource,
         colors = getButtonColors(isPressed = isPressed),
         enabled = enabled,
-        modifier = modifier.size(44.dp)
+        modifier = modifier.size(size.dp)
     ) {
         Icon(
             painter = painterResource(id = resourceId),
             contentDescription = null,
         )
     }
-
 }
 
 @Preview(showBackground = true)
