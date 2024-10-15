@@ -40,6 +40,7 @@ private const val AGE_INPUT_SIZE_WIDE = 64
 
 @Composable
 fun SurveyAgeOption(
+    hintText: String = SURVEY_AGE_OPTION_HINT,
     value: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -53,8 +54,8 @@ fun SurveyAgeOption(
             .clickable(onClick = onClick)
     ) {
         Text(
-            text = value ?: SURVEY_AGE_OPTION_HINT,
-            style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = if (value == SURVEY_AGE_OPTION_HINT) color_text_400 else color_text_600),
+            text = value ?: hintText,
+            style = BodyTextStyle.Body16Regular.toTextStyle().copy(color = if (value == hintText) color_text_400 else color_text_600),
             modifier = Modifier
                 .align(Alignment.CenterStart)
                 .padding(start = 12.dp)
