@@ -54,6 +54,7 @@ dependencies {
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.3.0")
+    implementation("io.coil-kt:coil-svg:2.0.0")
 }
 
 afterEvaluate {
@@ -62,7 +63,7 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "com.github.GermanIfeelDev"
                 artifactId = "Ifeel-Components"
-                version = "1.2.0"
+                version = "1.3.0"
 
                 afterEvaluate {
                     from(components["release"])
