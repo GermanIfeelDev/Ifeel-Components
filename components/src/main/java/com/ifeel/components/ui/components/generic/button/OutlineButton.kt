@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
@@ -40,7 +41,8 @@ fun OutlineButton(
     modifier: Modifier = Modifier,
     @DrawableRes iconResource: Int? = null,
     contentAlignment: Alignment.Horizontal = Alignment.Start,
-    isEnabled: Boolean = true
+    isEnabled: Boolean = true,
+    buttonSize: ButtonSize = ButtonSize.LARGE
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -48,13 +50,17 @@ fun OutlineButton(
     Button(
         onClick = onClick,
         modifier = modifier
-            .defaultMinSize(minWidth = 180.dp)
-            .height(44.dp),
+            .defaultMinSize(minWidth = buttonSize.minWidth.dp)
+            .height(buttonSize.height.dp),
         enabled = isEnabled,
         shape = RoundedCornerShape(6.dp),
         colors = getButtonColors(isPressed),
         border = BorderStroke(1.dp, getBorderColor(isEnabled)),
         interactionSource = interactionSource,
+        contentPadding = PaddingValues(
+            horizontal = buttonSize.horizontalPadding.dp,
+            vertical = buttonSize.verticalPadding.dp
+        )
     ) {
         TextWithIcon(text = text, iconResource = iconResource, contentAlignment = contentAlignment)
     }
@@ -64,24 +70,32 @@ fun OutlineButton(
 private fun TextWithIcon(
     text: String,
     @DrawableRes iconResource: Int? = null,
-    contentAlignment: Alignment.Horizontal = Alignment.Start
+    contentAlignment: Alignment.Horizontal = Alignment.Start,
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         when (contentAlignment) {
             Alignment.Start -> {
-                if (iconResource != null) Icon(imageVector = ImageVector.vectorResource(id = iconResource), contentDescription = null, tint = Color.Unspecified)
+                if (iconResource != null) Icon(
+                    imageVector = ImageVector.vectorResource(id = iconResource),
+                    contentDescription = null,
+                    tint = Color.Unspecified
+                )
                 Text(
                     text = text,
-                    style = ButtonTextStyle.ButtonDefaultSemiBold.toTextStyle()
+                    style = ButtonTextStyle.ButtonDefaultRegular.toTextStyle()
                 )
             }
 
             Alignment.End -> {
                 Text(
                     text = text,
-                    style = ButtonTextStyle.ButtonDefaultSemiBold.toTextStyle()
+                    style = ButtonTextStyle.ButtonDefaultRegular.toTextStyle()
                 )
-                if (iconResource != null) Icon(imageVector = ImageVector.vectorResource(id = iconResource), contentDescription = null, tint = Color.Unspecified)
+                if (iconResource != null) Icon(
+                    imageVector = ImageVector.vectorResource(id = iconResource),
+                    contentDescription = null,
+                    tint = Color.Unspecified
+                )
             }
         }
     }

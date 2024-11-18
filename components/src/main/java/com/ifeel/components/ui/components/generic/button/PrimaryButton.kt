@@ -3,6 +3,7 @@ package com.ifeel.components.ui.components.generic.button
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
@@ -39,6 +40,12 @@ enum class ButtonType {
     SECONDARY
 }
 
+enum class ButtonSize(val height: Int, val minWidth: Int, val horizontalPadding: Int, val verticalPadding: Int) {
+    LARGE(height = 44, minWidth = 180, horizontalPadding = 32, verticalPadding = 8),
+    MEDIUM(height = 40, minWidth = 120, horizontalPadding = 16, verticalPadding = 10),
+    SMALL(height = 36, minWidth = 60, horizontalPadding = 16, verticalPadding = 8)
+}
+
 @Composable
 fun PrimaryButton(
     text: String,
@@ -47,7 +54,8 @@ fun PrimaryButton(
     @DrawableRes iconResource: Int? = null,
     contentAlignment: Alignment.Horizontal = Alignment.Start,
     isEnabled: Boolean = true,
-    buttonType: ButtonType = ButtonType.PRIMARY
+    buttonType: ButtonType = ButtonType.PRIMARY,
+    buttonSize: ButtonSize = ButtonSize.LARGE
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -55,12 +63,16 @@ fun PrimaryButton(
     Button(
         onClick = onClick,
         modifier = modifier
-            .defaultMinSize(minWidth = 180.dp)
-            .height(44.dp),
+            .defaultMinSize(minWidth = buttonSize.minWidth.dp)
+            .height(buttonSize.height.dp),
         enabled = isEnabled,
         shape = RoundedCornerShape(6.dp),
         colors = getButtonColors(buttonType, isPressed),
         interactionSource = interactionSource,
+        contentPadding = PaddingValues(
+            horizontal = buttonSize.horizontalPadding.dp,
+            vertical = buttonSize.verticalPadding.dp
+        )
     ) {
         TextWithIcon(text = text, iconResource = iconResource, contentAlignment = contentAlignment)
     }
@@ -70,12 +82,16 @@ fun PrimaryButton(
 private fun TextWithIcon(
     text: String,
     @DrawableRes iconResource: Int? = null,
-    contentAlignment: Alignment.Horizontal = Alignment.Start
+    contentAlignment: Alignment.Horizontal = Alignment.Start,
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         when (contentAlignment) {
             Alignment.Start -> {
-                if (iconResource != null) Icon(imageVector = ImageVector.vectorResource(id = iconResource), contentDescription = null, tint = Color.Unspecified)
+                if (iconResource != null) Icon(
+                    imageVector = ImageVector.vectorResource(id = iconResource),
+                    contentDescription = null,
+                    tint = Color.Unspecified
+                )
                 Text(
                     text = text,
                     style = ButtonTextStyle.ButtonDefaultSemiBold.toTextStyle()
@@ -87,7 +103,11 @@ private fun TextWithIcon(
                     text = text,
                     style = ButtonTextStyle.ButtonDefaultSemiBold.toTextStyle()
                 )
-                if (iconResource != null) Icon(imageVector = ImageVector.vectorResource(id = iconResource), contentDescription = null, tint = Color.Unspecified)
+                if (iconResource != null) Icon(
+                    imageVector = ImageVector.vectorResource(id = iconResource),
+                    contentDescription = null,
+                    tint = Color.Unspecified
+                )
             }
         }
     }

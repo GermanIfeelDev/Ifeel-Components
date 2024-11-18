@@ -40,6 +40,13 @@ sealed class BodyTextStyle(
         fontWeight = FontWeight.SemiBold
     )
 
+    data object Body14SemiBold : BodyTextStyle(
+        color = color_text_600,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        fontWeight = FontWeight.SemiBold
+    )
+
     /**
      * @property color [color_text_600].
      * @property fontSize 16sp.

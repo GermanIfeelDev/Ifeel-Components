@@ -25,13 +25,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_400
 import com.ifeel.components.ui.theme.color_brand_primary_700
-import com.ifeel.components.ui.theme.color_text_700
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 
 @Composable
@@ -73,6 +73,7 @@ internal fun SurveyOptionButton(
                 style = BodyTextStyle.Body16Regular.toTextStyle().copy(
                     color = if (isPressed || selected) Color.White else color_brand_primary_700
                 ),
+                textAlign = if (imageUrl != null) TextAlign.Start else TextAlign.Center,
                 modifier = imageUrl?.let {
                     Modifier.padding(start = 12.dp).weight(1f)
                 } ?: Modifier
@@ -96,7 +97,7 @@ private fun SurveyButtonPreview() {
 
             SurveyOptionButton(
                 option = SurveyOptionVO(
-                    text = "Test",
+                    text = "yes - psychiatric hospitalization/Bait Mazen",
                     selected = selected,
                 ),
                 onSelectedChange = { selected = it },
