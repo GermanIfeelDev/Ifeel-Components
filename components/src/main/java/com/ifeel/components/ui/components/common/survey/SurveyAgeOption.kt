@@ -40,7 +40,7 @@ private const val AGE_INPUT_SIZE_WIDE = 64
 
 @Composable
 fun SurveyAgeOption(
-    hintText: String = SURVEY_AGE_OPTION_HINT,
+    hintText: String,
     value: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -82,6 +82,7 @@ private fun SurveyAgeOptionPreview() {
 
         Column(modifier = Modifier.padding(horizontal = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             SurveyAgeOption(
+                hintText = SURVEY_AGE_OPTION_HINT,
                 value = currentDate,
                 onClick = {
                     currentDate = "03/12/2022"
