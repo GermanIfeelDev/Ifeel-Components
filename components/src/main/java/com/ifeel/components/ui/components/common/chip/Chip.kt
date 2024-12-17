@@ -54,14 +54,20 @@ fun IfeelFilterChip(
     FilterChip(
         selected = selected,
         onClick = onClick,
-        label = { Text(text, style = BodyTextStyle.Body14Regular.toTextStyle().copy(color = Color.Unspecified)) },
+        label = {
+            Text(
+                text,
+                style = BodyTextStyle.Body14Regular.toTextStyle(),
+                color = getFilterChipColor(selected)
+            )
+        },
         modifier = modifier,
         leadingIcon = {
             svgIconUrl?.let {
                 AsyncImageSvg(
                     url = it,
                     modifier = Modifier.size(16.dp),
-                    colorFilter = ColorFilter.tint(if (selected) Color.White else color_text_600),
+                    colorFilter = ColorFilter.tint(getFilterChipColor(selected)),
                 )
             }
         },
@@ -80,6 +86,9 @@ fun IfeelFilterChip(
         ),
     )
 }
+
+@Composable
+private fun getFilterChipColor(selected: Boolean) = if (selected) Color.White else color_text_500
 
 /**
  * Displays a suggestion chip with a text label that is disabled and non-interactive.

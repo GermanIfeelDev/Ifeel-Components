@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -88,6 +89,8 @@ fun ToolCard(
                 style = BodyTextStyle.Body16Regular.toTextStyle(),
                 color = color_brand_primary_800,
                 textAlign = TextAlign.Start,
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .padding(vertical = 10.dp, horizontal = 12.dp)
             )
@@ -138,7 +141,7 @@ internal fun ToolCardPreview() {
     IfeelComponentsTheme {
         Column {
             ToolCard(
-                title = "¿Sabes lo que quieres en tu vida? Aclara tus objetivos",
+                title = "¿Sabes lo que quieres en tu vida? Aclara tus objetivos Porque si no no va a salir bien",
                 typeOfExercise = "Meditacion",
                 done = exerciseDone,
                 imageUrl = "https://media.istockphoto.com/id/691524194/photo/family-having-fun-at-home.jpg?s=612x612&w=0&k=20&c=jn3iQ4oKsfl4RgzxGuSF_iX9LehtyfdS9aD5gcq-TXU=",
@@ -170,5 +173,4 @@ internal fun ToolCardPreview() {
                 onFavoriteBtnClicked = { exerciseDone = !exerciseDone })
         }
     }
-
 }
