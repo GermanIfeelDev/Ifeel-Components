@@ -81,6 +81,7 @@ fun ChatToolbar(
                 AsyncImage(
                     model = imageUrl,
                     contentDescription = null,
+                    error = painterResource(R.drawable.maccabi_agent_avatar_placeholder),
                     modifier = Modifier
                         .size(30.dp)
                         .clip(CircleShape)
@@ -171,7 +172,7 @@ private fun ChatToolbarPreview() {
         ChatToolbar(
             name = "Paco",
             status = "Connected",
-            imageUrl = "https://headshots-inc.com/wp-content/uploads/2022/04/website-photos-1-4.jpg",
+            imageUrl = "",
             toolbarActions = listOf("Sign out", "Settings"),
             onToolbarActionClicked = { Log.e("XXX", it)},
         )
