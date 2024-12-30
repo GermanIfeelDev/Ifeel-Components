@@ -49,6 +49,7 @@ fun ChatSimpleInput(
     hint: String,
     onSendMessageBtnClicked: (String) -> Unit,
     modifier: Modifier = Modifier,
+    sendMessageBtnIsEnabled: Boolean = true,
 ) {
     Column(
         modifier = modifier.fillMaxWidth(),
@@ -69,12 +70,11 @@ fun ChatSimpleInput(
             )
 
             SendMessageButton(
-                onClick = { onSendMessageBtnClicked.invoke(message) }, modifier = Modifier
+                onClick = { onSendMessageBtnClicked.invoke(message) },
+                isEnabled = sendMessageBtnIsEnabled,
+                modifier = Modifier
                     .align(Alignment.Bottom)
-                    .padding(
-                        start = 6.dp,
-                        bottom = 2.dp
-                    )
+                    .padding(start = 6.dp, bottom = 2.dp)
             )
         }
     }

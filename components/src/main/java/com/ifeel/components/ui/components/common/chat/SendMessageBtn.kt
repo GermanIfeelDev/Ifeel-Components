@@ -8,6 +8,11 @@ import com.ifeel.components.R
 import com.ifeel.components.ui.components.generic.button.IconPrimaryButton
 
 @Composable
-internal fun SendMessageButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
-    IconPrimaryButton(onClick = onClick, resourceId = R.drawable.send_message_ic, modifier = modifier.size(34.dp))
+internal fun SendMessageButton(onClick: () -> Unit, isEnabled : Boolean, modifier: Modifier = Modifier) {
+    IconPrimaryButton(
+        onClick = onClick,
+        enabled = isEnabled,
+        resourceId = R.drawable.send_message_ic,
+        modifier = modifier.size(34.dp)
+    )
 }
