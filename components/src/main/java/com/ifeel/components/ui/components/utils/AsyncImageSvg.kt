@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
-import coil.size.Size
 
 /**
  * A composable function that displays an SVG image asynchronously from a given URL. It uses a painter
@@ -32,7 +31,6 @@ internal fun AsyncImageSvg(
         model = ImageRequest.Builder(LocalContext.current)
             .decoderFactory(SvgDecoder.Factory())
             .data(url)
-            .size(Size.ORIGINAL)
             .build()
     )
 
