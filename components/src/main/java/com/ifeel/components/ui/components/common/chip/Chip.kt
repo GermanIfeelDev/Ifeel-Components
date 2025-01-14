@@ -88,7 +88,7 @@ fun IfeelFilterChip(
 }
 
 @Composable
-private fun getFilterChipColor(selected: Boolean) = if (selected) Color.White else color_text_500
+private fun getFilterChipColor(selected: Boolean) = if (selected) Color.White else color_text_600
 
 /**
  * Displays a suggestion chip with a text label that is disabled and non-interactive.
