@@ -101,6 +101,21 @@ sealed class HeadlineTextStyle(
 
     /**
      * @property color [color_text_600].
+     * @property fontSize 24sp.
+     * @property lineHeight 28sp.
+     * @property fontWeight [FontWeight.Medium].
+     * @property fontFamily [recoletaFontFamily].
+     */
+    data object H3SemiboldRecoleta : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp,
+        fontFamily = recoletaFontFamily,
+        lineHeight = 32.sp
+    )
+
+    /**
+     * @property color [color_text_600].
      * @property fontSize 18sp.
      * @property lineHeight 24sp.
      * @property fontWeight [FontWeight.SemiBold].
