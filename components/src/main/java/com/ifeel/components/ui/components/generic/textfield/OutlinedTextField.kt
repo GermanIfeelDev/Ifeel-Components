@@ -29,8 +29,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ifeel.components.R
 import com.ifeel.components.ui.components.common.text.ErrorText
+import com.ifeel.components.ui.theme.color_background_7
 import com.ifeel.components.ui.theme.color_brand_primary_600
 import com.ifeel.components.ui.theme.color_danger_500
+import com.ifeel.components.ui.theme.color_text_100
 import com.ifeel.components.ui.theme.color_text_300
 import com.ifeel.components.ui.theme.color_text_400
 import com.ifeel.components.ui.theme.color_text_500
@@ -100,6 +102,9 @@ fun OutlinedTextField(
                 errorContainerColor = Color.White,
                 unfocusedContainerColor = Color.White,
                 focusedContainerColor = Color.White,
+                disabledTextColor = color_text_300,
+                disabledBorderColor = color_text_100,
+                disabledContainerColor = color_background_7,
             )
         )
 

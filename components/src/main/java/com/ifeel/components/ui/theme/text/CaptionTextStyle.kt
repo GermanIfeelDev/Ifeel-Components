@@ -38,4 +38,17 @@ sealed class CaptionTextStyle(
         fontSize = 12.sp,
         lineHeight = 16.sp
     )
+
+    /**
+     * @property color [color_text_600].
+     * @property fontSize 12sp.
+     * @property lineHeight 16sp.
+     * @property fontWeight [FontWeight.SemiBold].
+     */
+    data object Caption12Semibold : CaptionTextStyle(
+        color = color_text_600,
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+        fontWeight = FontWeight.SemiBold
+    )
 }
