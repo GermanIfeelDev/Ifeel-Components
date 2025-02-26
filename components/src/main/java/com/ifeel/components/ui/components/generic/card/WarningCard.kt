@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -17,12 +18,13 @@ import com.ifeel.components.R
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_secondary_200
 import com.ifeel.components.ui.theme.color_danger_100
+import com.ifeel.components.ui.theme.color_text_700
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 
 private val cardShape = RoundedCornerShape(10.dp)
 
 @Composable
-fun AlertInfoCard(text: String, modifier: Modifier = Modifier) {
+fun WarningCard(text: String, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .border(
@@ -32,29 +34,31 @@ fun AlertInfoCard(text: String, modifier: Modifier = Modifier) {
             )
             .clip(shape = cardShape)
             .background(color = color_danger_100)
+            .padding(12.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.support_agent_ic),
+            painter = painterResource(id = R.drawable.warning_card_ic),
             contentDescription = null,
             modifier = Modifier
-                .padding(start = 12.dp, top = 20.dp)
+                .align(Alignment.CenterVertically)
+                .padding(end = 8.dp),
         )
 
         Text(
             text = text,
             style = BodyTextStyle.Body14Regular.toTextStyle(),
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 20.dp),
+            color = color_text_700
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun AlertInfoCardPreview() {
+private fun WarningCardPreview() {
     IfeelComponentsTheme {
-        AlertInfoCard(
-            modifier = Modifier.padding(horizontal = 20.dp),
-            text = "Tu anterior conversación con tu psicólogo guía se ha trasladado al chat de atención al usuario. Puedes acceder a él en el menú superior de este chat."
+        WarningCard(
+            modifier = Modifier.padding(20.dp),
+            text = "Contraseña o email incorrectos. Por motivos de seguridad, después de 10 intentos fallidos tu acceso se bloqueará durante 60 minutos."
         )
     }
 }
