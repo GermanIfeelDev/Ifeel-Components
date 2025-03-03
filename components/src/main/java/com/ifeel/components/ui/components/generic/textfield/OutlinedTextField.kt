@@ -108,12 +108,12 @@ fun OutlinedTextField(
             )
         )
 
-        AnimatedVisibility(visible = supportingText != null && isFocused) {
-            TextFieldSupportingText(text = supportingText!!)
-        }
-
         AnimatedVisibility(isError && errorMessage != null) {
             ErrorText(text = errorMessage!!)
+        }
+
+        AnimatedVisibility(visible = supportingText != null && isFocused) {
+            TextFieldSupportingText(text = supportingText!!)
         }
     }
 }
