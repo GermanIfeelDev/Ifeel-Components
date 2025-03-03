@@ -3,17 +3,19 @@ package com.ifeel.components.ui.components.common.button
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_text_400
-import com.ifeel.components.ui.theme.color_white
 
 @Composable
 fun LocaleButton(
@@ -23,10 +25,15 @@ fun LocaleButton(
 ) {
     OutlinedIconButton(
         onClick = onClick,
-        shape = RoundedCornerShape(6.dp),
-        border = BorderStroke(1.dp, color_text_400),
+        border = BorderStroke(0.dp, Color.Transparent),
         modifier = modifier
-            .background(color_white, RoundedCornerShape(6.dp))
+            .border(
+                width = 1.dp,
+                color = color_text_400,
+                shape = RoundedCornerShape(6.dp)
+            )
+            .clip(shape = RoundedCornerShape(6.dp))
+            .background(color = Color.White)
             .size(height = 44.dp, width = 48.dp)
     ) {
         Image(
