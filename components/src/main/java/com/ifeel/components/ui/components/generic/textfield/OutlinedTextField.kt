@@ -81,7 +81,7 @@ fun OutlinedTextField(
                 lineHeight = 24.sp,
             ),
             label = {
-                if (!isFocused && inputText != null) {
+                if (!isFocused && inputText != null && value.isEmpty()) {
                     Text(
                         text = inputText,
                         style = BodyTextStyle.Body16Regular.toTextStyle()
