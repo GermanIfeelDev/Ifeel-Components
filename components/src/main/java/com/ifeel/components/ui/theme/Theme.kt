@@ -73,7 +73,7 @@ fun IfeelComponentsTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = color_brand_primary_500.toArgb()
+            window.statusBarColor = color_brand_primary_700.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
