@@ -80,7 +80,8 @@ fun ToolCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
+            alignment = Alignment.TopCenter
         )
 
         Column {
@@ -144,7 +145,7 @@ internal fun ToolCardPreview() {
                 title = "¿Sabes lo que quieres en tu vida? Aclara tus objetivos Porque si no no va a salir bien",
                 typeOfExercise = "Meditacion",
                 done = exerciseDone,
-                imageUrl = "https://media.istockphoto.com/id/691524194/photo/family-having-fun-at-home.jpg?s=612x612&w=0&k=20&c=jn3iQ4oKsfl4RgzxGuSF_iX9LehtyfdS9aD5gcq-TXU=",
+                imageUrl = "https://ifeelonline.com/en/wp-content/uploads/sites/2/2022/03/autodesarrollo-autoestima-1024x683-1.jpg",
                 time = "5 min",
                 onToolClicked = { },
                 onFavoriteBtnClicked = { exerciseDone = !exerciseDone }
@@ -156,7 +157,7 @@ internal fun ToolCardPreview() {
                 title = "Meditacion para la ansiedad",
                 typeOfExercise = "Post",
                 done = exerciseDone,
-                imageUrl = "https://media.istockphoto.com/id/691524194/photo/family-having-fun-at-home.jpg?s=612x612&w=0&k=20&c=jn3iQ4oKsfl4RgzxGuSF_iX9LehtyfdS9aD5gcq-TXU=",
+                imageUrl = "https://ifeelonline.com/en/wp-content/uploads/sites/2/2022/03/autodesarrollo-autoestima-1024x683-1.jpg",
                 time = "5 min",
                 onToolClicked = { },
                 onFavoriteBtnClicked = { exerciseDone = !exerciseDone })
@@ -167,7 +168,7 @@ internal fun ToolCardPreview() {
                 title = "Chocolate",
                 typeOfExercise = "Podcast",
                 done = exerciseDone,
-                imageUrl = "https://media.istockphoto.com/id/691524194/photo/family-having-fun-at-home.jpg?s=612x612&w=0&k=20&c=jn3iQ4oKsfl4RgzxGuSF_iX9LehtyfdS9aD5gcq-TXU=",
+                imageUrl = "https://ifeelonline.com/en/wp-content/uploads/sites/2/2022/03/autodesarrollo-autoestima-1024x683-1.jpg",
                 time = "5 min",
                 onToolClicked = { },
                 onFavoriteBtnClicked = { exerciseDone = !exerciseDone })
