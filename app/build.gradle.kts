@@ -68,5 +68,6 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.3.0")
 
     //Components library
-    implementation("com.github.GermanIfeelDev:Ifeel-Components:0.0.1")
+//    implementation("com.github.GermanIfeelDev:Ifeel-Components:0.0.1")
+    implementation(project(":components"))
 }
