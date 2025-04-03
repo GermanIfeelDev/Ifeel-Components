@@ -3,15 +3,14 @@ package com.ifeel.components.ui.components.common.survey
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -45,6 +44,7 @@ import com.ifeel.components.ui.theme.text.CaptionTextStyle
  * @param lastRatingDescription The description string for the last rating item.
  * @param onRatingClicked Lambda function invoked when a rating item is clicked.
  * @param modifier Modifier for this layout. Defaults to Modifier.
+ * @param listState LazyListState the state object to be used to control or observe the list's state.
  */
 @Composable
 fun ScoreSurvey(
@@ -52,12 +52,14 @@ fun ScoreSurvey(
     firstRatingDescription: String,
     lastRatingDescription: String,
     onRatingClicked: (Pair<String, Boolean>) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    listState: LazyListState = rememberLazyListState(),
 ) {
     ConstraintLayout(modifier = modifier.fillMaxWidth()) {
         val (ratingList) = createRefs()
 
         LazyColumn(
+            state = listState,
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier

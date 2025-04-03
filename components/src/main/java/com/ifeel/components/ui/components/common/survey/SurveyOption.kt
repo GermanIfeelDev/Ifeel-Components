@@ -3,15 +3,14 @@ package com.ifeel.components.ui.components.common.survey
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ifeel.components.ui.theme.IfeelComponentsTheme
 
 enum class SurveyType {
     SINGLE, MULTIPLE
@@ -32,6 +31,7 @@ data class SurveyOptionVO(
  * @param onOptionSelected Lambda function invoked when an option is selected or deselected.
  * @param surveyType The type of survey options layout.
  * @param modifier Modifier for this layout. Defaults to Modifier.
+ * @param listState LazyListState the state object to be used to control or observe the list's state.
  */
 @Composable
 fun SurveyOption(
@@ -39,9 +39,11 @@ fun SurveyOption(
     onOptionSelected: (Pair<String, Boolean>) -> Unit,
     surveyType: SurveyType,
     modifier: Modifier = Modifier,
+    listState: LazyListState = rememberLazyListState(),
 ) {
     val buttonHeight = if (surveyType == SurveyType.SINGLE) 80.dp else 64.dp
     LazyColumn(
+        state = listState,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier
