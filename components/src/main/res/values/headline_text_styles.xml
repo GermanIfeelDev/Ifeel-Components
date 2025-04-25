@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Base Headline Style -->
+    <style name="TextStyle.Headline">
+        <item name="android:fontFamily">@font/primary_font_family</item>
+        <item name="android:textColor">@color/color_text_600</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region H1 Styles -->
+    <style name="TextStyle.Headline.H1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">20sp</item>
+    </style>
+
+    <style name="TextStyle.Headline.H1.SemiboldSecondary">
+        <item name="android:fontFamily">@font/lora_semibold</item>
+    </style>
+
+    <style name="TextStyle.Headline.H1.MediumSecondary">
+        <item name="android:fontFamily">@font/lora_medium</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region H2 Styles -->
+    <style name="TextStyle.Headline.H2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">12sp</item>
+    </style>
+
+    <style name="TextStyle.Headline.H2.SemiBoldSecondary">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextStyle.Headline.H2.MediumSecondary">
+        <item name="android:fontFamily">@font/lora_medium</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region H3 Styles -->
+    <style name="TextStyle.Headline.H3">
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="TextStyle.Headline.H3.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextStyle.Headline.H3.SemiboldSecondary">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:fontFamily">@font/lora_semibold</item>
+    </style>
+
+    <style name="TextStyle.Headline.H3.MediumSecondary">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:fontFamily">@font/lora_medium</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region H4 Styles -->
+    <style name="TextStyle.Headline.H4">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+    <style name="TextStyle.Headline.H4.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextStyle.Headline.H4.SemiBoldSecondary">
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:fontFamily">@font/lora_semibold</item>
+    </style>
+
+    <style name="TextStyle.Headline.H4.MediumSecondary">
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:fontFamily">@font/lora_semibold</item>
+    </style>
+    <!-- endregion -->
+</resources>

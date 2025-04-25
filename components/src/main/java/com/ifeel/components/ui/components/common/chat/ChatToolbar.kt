@@ -96,7 +96,7 @@ fun ChatToolbar(
 
                     Text(
                         text = status,
-                        style = CaptionTextStyle.Caption12Regular.toTextStyle(),
+                        style = CaptionTextStyle.CaptionRegular.toTextStyle(),
                         color = color_text_500,
                     )
                 }
