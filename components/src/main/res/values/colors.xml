@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Design System Colors -->
+
+    <!-- Text Colors -->
+    <color name="color_text_700">#FF021B4B</color>
+    <color name="color_text_600">#FF273C66</color>
+    <color name="color_text_500">#FF515F78</color>
+    <color name="color_text_400">#FF747F94</color>
+    <color name="color_text_300">#FFA2AAB8</color>
+    <color name="color_text_200">#FFD0D4DB</color>
+    <color name="color_text_100">#FFE8EAED</color>
+    <color name="color_text_warm_700">#FF4E4949</color>
+    <color name="color_text_warm_400">#FF977E67</color>
+    <color name="color_text_warm_100">#FFE9C9AB</color>
+    <color name="color_text_cold_500">#FF526BA1</color>
+
+    <!-- Brand Colors -->
+    <!-- Primary Colors -->
+    <color name="color_brand_primary_800">#FF102E5D</color>
+    <color name="color_brand_primary_700">#FF1B4291</color>
+    <color name="color_brand_primary_600">#FF3872D9</color>
+    <color name="color_brand_primary_500">#FF4196FA</color>
+    <color name="color_brand_primary_400">#FF6192E9</color>
+    <color name="color_brand_primary_300">#FF7DA9F9</color>
+    <color name="color_brand_primary_200">#FFC2D8FF</color>
+    <color name="color_brand_primary_100">#FFDEEBFF</color>
+    <color name="color_brand_primary_50">#FFEAF2FF</color>
+
+    <!-- Primary Light Colors -->
+    <color name="color_brand_primary_light_500">#FFC0E1FF</color>
+    <color name="color_brand_primary_light_400">#FFD1E9FF</color>
+    <color name="color_brand_primary_light_300">#FFE0F0FF</color>
+    <color name="color_brand_primary_light_200">#FFF2F7FD</color>
+
+    <!-- Secondary Colors -->
+    <color name="color_brand_secondary_700">#FFD67B7B</color>
+    <color name="color_brand_secondary_600">#FFD67B7B</color>
+    <color name="color_brand_secondary_400">#FFFF9090</color>
+    <color name="color_brand_secondary_200">#FFFFCCC5</color>
+    <color name="color_brand_secondary_100">#FFFFDDDB</color>
+    <color name="color_brand_secondary_50">#FFFFEDED</color>
+
+    <!-- Secondary Light (Salmon) Colors -->
+    <color name="color_brand_salmon_700">#FFE37C67</color>
+    <color name="color_brand_salmon_600">#FFFF9D88</color>
+    <color name="color_brand_salmon_500">#FFFFB3A3</color>
+    <color name="color_brand_salmon_400">#FFFFDAC8</color>
+    <color name="color_brand_salmon_300">#FFFFE9DF</color>
+    <color name="color_brand_salmon_200">#FFFFF2EC</color>
+    <color name="color_brand_salmon_100">#FFFFF8F4</color>
+    <color name="color_brand_salmon_50">#FFFAF3EF</color>
+
+    <!-- Complementary Colors -->
+    <color name="color_brand_complementary_yellow">#FFF8E4C5</color>
+    <color name="color_brand_complementary_aquamarine_700">#FFACE4F5</color>
+    <color name="color_brand_complementary_aquamarine_500">#FFC5ECF8</color>
+
+    <!-- Background Colors -->
+    <color name="color_background_1">#FFF3F7FB</color>
+    <color name="color_background_2">#FFFBF6F5</color>
+    <color name="color_background_3">#FFFAF5EF</color>
+    <color name="color_background_4">#FFFFF0EB</color>
+    <color name="color_background_5">#FFFBE8DA</color>
+    <color name="color_background_6">#FFF5E9E4</color>
+    <color name="color_background_7">#FFF8F8F8</color>
+    <color name="color_background_8">#FFFBF9F9</color>
+
+    <!-- Semantic Colors -->
+    <!-- Success -->
+    <color name="color_success_700">#FF3B8B81</color>
+    <color name="color_success_500">#FF45BFB0</color>
+    <color name="color_success_300">#FF83DDD2</color>
+    <color name="color_success_200">#FFC1ECE7</color>
+    <color name="color_success_150">#FFE4F3ED</color>
+    <color name="color_success_100">#FFEDF9F7</color>
+
+    <!-- Warning -->
+    <color name="color_warning_700">#FFFFAD0D</color>
+    <color name="color_warning_500">#FFFFCD6A</color>
+    <color name="color_warning_400">#FFFFE0A3</color>
+    <color name="color_warning_200">#FFFFF6E5</color>
+
+    <!-- Danger -->
+    <color name="color_danger_700">#FFE14237</color>
+    <color name="color_danger_500">#FFF48179</color>
+    <color name="color_danger_200">#FFFFD2CE</color>
+    <color name="color_danger_100">#FFFFECEB</color>
+
+    <!-- Links -->
+    <color name="color_link_500">#FF2789FD</color>
+    <color name="color_link_200">#FFC8DFFA</color>
+
+    <!-- Natural Color -->
+    <color name="color_white">#FFFFFFFF</color>
+
+    <!-- Gradient Colors -->
+    <color name="color_gradient_1_start">#FF325CB3</color>
+    <color name="color_gradient_1_end">#FF47528B</color>
+    <color name="color_gradient_2_start">#FFFFF6F0</color>
+    <color name="color_gradient_2_end">#FFFFE3D6</color>
+    <color name="color_gradient_3_start">#FFFFE2DE</color>
+    <color name="color_gradient_3_end">#FFFBE8DA</color>
+    <color name="color_gradient_4_start">#FFF1F9FE</color>
+    <color name="color_gradient_4_end">#FFFEE9E0</color>
+    <color name="color_gradient_5_start">#FFFEF8F4</color>
+    <color name="color_gradient_5_end">#FFF3E8E2</color>
+    <color name="color_gradient_6_start">#FFECF5FB</color>
+    <color name="color_gradient_6_end">#FFFAFDFF</color>
+
+    <!-- Overlay -->
+    <color name="color_overlay_color">#80000000</color>
+
+    <!-- Other Colors -->
+    <color name="whatsapp_color">#FF4FD062</color>
+</resources>

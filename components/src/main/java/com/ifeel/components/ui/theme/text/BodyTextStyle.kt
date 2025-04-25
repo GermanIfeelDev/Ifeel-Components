@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.ifeel.components.ui.theme.color_text_600
-import com.ifeel.components.ui.theme.sofiaProFontFamily
+import com.ifeel.components.ui.theme.primaryFontFamily
 /**
  * Sealed class representing different body text styles used in the application.
  *
@@ -15,7 +15,7 @@ import com.ifeel.components.ui.theme.sofiaProFontFamily
  * @property fontSize
  * @property lineHeight
  * @property fontWeight Defaults to [FontWeight.Normal].
- * @property fontFamily Defaults to [sofiaProFontFamily].
+ * @property fontFamily Defaults to [primaryFontFamily].
  * @property fontStyle Defaults to [FontStyle.Normal].
  */
 sealed class BodyTextStyle(
@@ -23,49 +23,41 @@ sealed class BodyTextStyle(
     fontSize: TextUnit,
     lineHeight: TextUnit,
     fontWeight: FontWeight = FontWeight.Normal,
-    fontFamily: FontFamily = sofiaProFontFamily,
+    fontFamily: FontFamily = primaryFontFamily,
     fontStyle: FontStyle = FontStyle.Normal
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
 
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 16sp.
-     * @property lineHeight 24sp.
-     * @property fontWeight [FontWeight.SemiBold].
-     */
     data object Body16SemiBold : BodyTextStyle(
         color = color_text_600,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
+        fontSize = BODY_16_FONT_SIZE.sp,
+        lineHeight = BODY_16_LINE_HEIGHT.sp,
         fontWeight = FontWeight.SemiBold
+    )
+
+    data object Body16Regular : BodyTextStyle(
+        color = color_text_600,
+        fontSize = BODY_16_FONT_SIZE.sp,
+        lineHeight = BODY_16_LINE_HEIGHT.sp,
     )
 
     data object Body14SemiBold : BodyTextStyle(
         color = color_text_600,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
+        fontSize = BODY_14_FONT_SIZE.sp,
+        lineHeight = BODY_14_LINE_HEIGHT.sp,
         fontWeight = FontWeight.SemiBold
     )
 
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 16sp.
-     * @property lineHeight 24sp.
-     */
-    data object Body16Regular : BodyTextStyle(
-        color = color_text_600,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-    )
-
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 14sp.
-     * @property lineHeight 20sp.
-     */
     data object Body14Regular: BodyTextStyle(
         color = color_text_600,
-        fontSize = 14.sp,
-        lineHeight = 20.sp
+        fontSize = BODY_14_FONT_SIZE.sp,
+        lineHeight = BODY_14_LINE_HEIGHT.sp
     )
+
+    companion object {
+        private const val BODY_16_FONT_SIZE = 14
+        private const val BODY_16_LINE_HEIGHT = 22
+
+        private const val BODY_14_FONT_SIZE = 12
+        private const val BODY_14_LINE_HEIGHT = 20
+    }
 }

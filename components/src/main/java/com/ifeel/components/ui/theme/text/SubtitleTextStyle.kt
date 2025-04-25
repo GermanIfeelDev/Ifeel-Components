@@ -10,30 +10,30 @@ import com.ifeel.components.ui.theme.color_text_600
 import com.ifeel.components.ui.theme.primaryFontFamily
 
 /**
- * Sealed class representing different text styles for captions used in the application.
+ * Sealed class representing different text styles for subtitles used in the application.
  *
- * @property color Defaults to [color_text_600].
+ * @property color
  * @property fontSize Defaults to [DEFAULT_FONT_SIZE].
  * @property lineHeight Defaults to [DEFAULT_LINE_HEIGHT].
  * @property fontWeight Defaults to [FontWeight.Normal].
  * @property fontFamily Defaults to [primaryFontFamily].
  * @property fontStyle Defaults to [FontStyle.Normal].
  */
-sealed class CaptionTextStyle(
-    color: Color = color_text_600,
+sealed class SubtitleTextStyle(
+    color: Color,
     fontSize: TextUnit = DEFAULT_FONT_SIZE.sp,
     lineHeight: TextUnit = DEFAULT_LINE_HEIGHT.sp,
     fontWeight: FontWeight = FontWeight.Normal,
     fontFamily: FontFamily = primaryFontFamily,
     fontStyle: FontStyle = FontStyle.Normal,
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
-
-    data object CaptionRegular : CaptionTextStyle()
-
-    data object CaptionSemibold : CaptionTextStyle(fontWeight = FontWeight.SemiBold)
+    data object SubtitleSemibold : SubtitleTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.SemiBold,
+    )
 
     companion object {
-        private const val DEFAULT_FONT_SIZE = 12
-        private const val DEFAULT_LINE_HEIGHT = 16
+        private const val DEFAULT_FONT_SIZE = 16
+        private const val DEFAULT_LINE_HEIGHT = 22
     }
 }

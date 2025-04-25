@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Base Body Style -->
+    <style name="TextStyle.Body">
+        <item name="android:textColor">@color/color_text_600</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Body 16 Styles -->
+    <style name="TextStyle.Body.16">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="TextStyle.Body.16.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextStyle.Body.16.Regular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Body 14 Styles -->
+    <style name="TextStyle.Body.14">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="TextStyle.Body.14.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="TextStyle.Body.14.Regular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+    <!-- endregion -->
+</resources>

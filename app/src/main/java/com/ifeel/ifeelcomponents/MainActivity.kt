@@ -33,8 +33,8 @@ import com.ifeel.components.ui.components.generic.spinner.Spinner
 import com.ifeel.components.ui.components.generic.textfield.EditableTextField
 import com.ifeel.components.ui.components.generic.textfield.OutlinedTextField
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
-import com.ifeel.components.ui.theme.recoletaFontFamily
-import com.ifeel.components.ui.theme.sofiaProFontFamily
+import com.ifeel.components.ui.theme.secondaryFontFamily
+import com.ifeel.components.ui.theme.primaryFontFamily
 import com.ifeel.components.ui.theme.text.HeadlineTextStyle
 
 class MainActivity : ComponentActivity() {
@@ -103,18 +103,13 @@ fun TextComponents(modifier: Modifier = Modifier) {
         Text(
             text = "2. H2 Semibold With Copy (Changed FontFamily to Recoleta and Font Weight to Medium)",
             style = HeadlineTextStyle.H2SemiBold.toTextStyle().copy(
-                fontFamily = recoletaFontFamily, fontWeight = FontWeight.Medium
+                fontFamily = secondaryFontFamily, fontWeight = FontWeight.Medium
             ),
             modifier = Modifier.padding(top = 10.dp)
         )
         Text(
-            text = "Text Style fully customized",
-            style = TextStyle(
-                fontFamily = sofiaProFontFamily,
-                fontWeight = FontWeight.Normal,
-                fontStyle = FontStyle.Italic,
-                fontSize = 20.sp
-            ),
+            text = "H3 Medium Secondary",
+            style = HeadlineTextStyle.H3MediumSecondary.toTextStyle(),
         )
         Divider(modifier = Modifier.padding(vertical = 8.dp))
     }

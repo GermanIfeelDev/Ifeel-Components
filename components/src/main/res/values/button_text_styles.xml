@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Base Button Style -->
+    <style name="TextStyle.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Button Default SemiBold -->
+    <style name="TextStyle.Button.Default.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Button Default Regular -->
+    <style name="TextStyle.Button.Default.Regular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+    <!-- endregion -->
+</resources>

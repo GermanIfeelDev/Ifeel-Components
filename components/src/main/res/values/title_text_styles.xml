@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Base Title Style -->
+    <style name="TextStyle.Title">
+        <item name="android:textColor">@color/color_text_600</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Title SemiBold -->
+    <style name="TextStyle.Title.SemiBold">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Title Medium -->
+    <style name="TextStyle.Title.Medium">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:fontFamily">@font/lora_medium</item>
+    </style>
+    <!-- endregion -->
+</resources>

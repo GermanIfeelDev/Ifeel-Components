@@ -95,7 +95,7 @@ fun ChatMessageOwn(
             ) {
                 Text(
                     text = sendOn,
-                    style = CaptionTextStyle.Caption12Regular.toTextStyle(),
+                    style = CaptionTextStyle.CaptionRegular.toTextStyle(),
                     color = color_text_500,
                 )
                 Image(
