@@ -19,12 +19,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.ifeel.components.R
 import com.ifeel.components.ui.components.common.textfield.PasswordTextField
 import com.ifeel.components.ui.components.generic.button.ButtonType
@@ -33,8 +30,7 @@ import com.ifeel.components.ui.components.generic.spinner.Spinner
 import com.ifeel.components.ui.components.generic.textfield.EditableTextField
 import com.ifeel.components.ui.components.generic.textfield.OutlinedTextField
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
-import com.ifeel.components.ui.theme.recoletaFontFamily
-import com.ifeel.components.ui.theme.sofiaProFontFamily
+import com.ifeel.components.ui.theme.secondaryFontFamily
 import com.ifeel.components.ui.theme.text.HeadlineTextStyle
 
 class MainActivity : ComponentActivity() {
@@ -97,24 +93,19 @@ fun TextComponents(modifier: Modifier = Modifier) {
         )
         Text(
             text = "1. H2 SemiBold With Default Object",
-            style = HeadlineTextStyle.H2SemiBold.toTextStyle(),
+            style = HeadlineTextStyle.H2SemiBoldSecondary.toTextStyle(),
             modifier = Modifier.padding(top = 10.dp)
         )
         Text(
             text = "2. H2 Semibold With Copy (Changed FontFamily to Recoleta and Font Weight to Medium)",
-            style = HeadlineTextStyle.H2SemiBold.toTextStyle().copy(
-                fontFamily = recoletaFontFamily, fontWeight = FontWeight.Medium
+            style = HeadlineTextStyle.H2SemiBoldSecondary.toTextStyle().copy(
+                fontFamily = secondaryFontFamily, fontWeight = FontWeight.Medium
             ),
             modifier = Modifier.padding(top = 10.dp)
         )
         Text(
-            text = "Text Style fully customized",
-            style = TextStyle(
-                fontFamily = sofiaProFontFamily,
-                fontWeight = FontWeight.Normal,
-                fontStyle = FontStyle.Italic,
-                fontSize = 20.sp
-            ),
+            text = "H3 Medium Secondary",
+            style = HeadlineTextStyle.H3MediumSecondary.toTextStyle(),
         )
         Divider(modifier = Modifier.padding(vertical = 8.dp))
     }

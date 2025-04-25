@@ -112,7 +112,7 @@ fun ToolCard(
 
                 Text(
                     text = time,
-                    style = CaptionTextStyle.Caption12Regular.toTextStyle(),
+                    style = CaptionTextStyle.CaptionRegular.toTextStyle(),
                     color = color_text_cold_500,
                     modifier = Modifier.padding(start = 12.dp)
                 )

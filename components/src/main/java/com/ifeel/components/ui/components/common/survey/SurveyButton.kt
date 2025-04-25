@@ -32,7 +32,7 @@ import coil.compose.AsyncImage
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_400
 import com.ifeel.components.ui.theme.color_brand_primary_700
-import com.ifeel.components.ui.theme.text.BodyTextStyle
+import com.ifeel.components.ui.theme.text.SubtitleTextStyle
 
 @Composable
 internal fun SurveyOptionButton(
@@ -70,7 +70,7 @@ internal fun SurveyOptionButton(
 
             Text(
                 text = text,
-                style = BodyTextStyle.Body16Regular.toTextStyle().copy(
+                style = SubtitleTextStyle.SubtitleRegular.toTextStyle().copy(
                     color = if (isPressed || selected) Color.White else color_brand_primary_700
                 ),
                 textAlign = if (imageUrl != null) TextAlign.Start else TextAlign.Center,

@@ -74,7 +74,7 @@ fun PrimaryButton(
             vertical = buttonSize.verticalPadding.dp
         )
     ) {
-        TextWithIcon(text = text, iconResource = iconResource, contentAlignment = contentAlignment)
+        TextWithIcon(text = text, iconResource = iconResource, contentAlignment = contentAlignment, buttonSize = buttonSize)
     }
 }
 
@@ -83,6 +83,7 @@ private fun TextWithIcon(
     text: String,
     @DrawableRes iconResource: Int? = null,
     contentAlignment: Alignment.Horizontal = Alignment.Start,
+    buttonSize: ButtonSize,
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         when (contentAlignment) {
@@ -94,14 +95,14 @@ private fun TextWithIcon(
                 )
                 Text(
                     text = text,
-                    style = ButtonTextStyle.ButtonDefaultSemiBold.toTextStyle()
+                    style = getButtonTextStyle(buttonSize).toTextStyle()
                 )
             }
 
             Alignment.End -> {
                 Text(
                     text = text,
-                    style = ButtonTextStyle.ButtonDefaultSemiBold.toTextStyle()
+                    style = getButtonTextStyle(buttonSize).toTextStyle()
                 )
                 if (iconResource != null) Icon(
                     imageVector = ImageVector.vectorResource(id = iconResource),
@@ -110,6 +111,15 @@ private fun TextWithIcon(
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun getButtonTextStyle(buttonSize: ButtonSize): ButtonTextStyle {
+    return when (buttonSize) {
+        ButtonSize.LARGE -> ButtonTextStyle.ButtonLargeSemiBold
+        ButtonSize.MEDIUM -> ButtonTextStyle.ButtonDefaultSemiBold
+        ButtonSize.SMALL -> ButtonTextStyle.ButtonSmallSemiBold
     }
 }
 
@@ -170,7 +180,8 @@ private fun PrimaryButtonPreviewColorAccent() {
             onClick = { },
             iconResource = R.drawable.supporting_text_info_ic,
             contentAlignment = Alignment.End,
-            buttonType = ButtonType.SECONDARY
+            buttonType = ButtonType.SECONDARY,
+            buttonSize = ButtonSize.MEDIUM,
         )
     }
 }
@@ -185,7 +196,8 @@ private fun PrimaryButtonPreviewColorAccentDisabled() {
             iconResource = R.drawable.supporting_text_info_ic,
             contentAlignment = Alignment.End,
             isEnabled = false,
-            buttonType = ButtonType.SECONDARY
+            buttonType = ButtonType.SECONDARY,
+            buttonSize = ButtonSize.SMALL,
         )
     }
 }

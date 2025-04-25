@@ -34,7 +34,7 @@ internal fun ChatDateText(text: String, modifier: Modifier = Modifier) {
     ) {
         Text(
             text = text,
-            style = CaptionTextStyle.Caption12Regular.toTextStyle(),
+            style = CaptionTextStyle.CaptionRegular.toTextStyle(),
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
         )
     }

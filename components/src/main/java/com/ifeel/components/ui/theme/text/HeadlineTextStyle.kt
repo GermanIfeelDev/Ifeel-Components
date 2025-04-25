@@ -7,125 +7,107 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.ifeel.components.ui.theme.color_text_600
-import com.ifeel.components.ui.theme.recoletaFontFamily
-import com.ifeel.components.ui.theme.sofiaProFontFamily
+import com.ifeel.components.ui.theme.secondaryFontFamily
+import com.ifeel.components.ui.theme.primaryFontFamily
 
 
 /**
  * Sealed class representing different text styles for headlines used in the application.
  *
- * @property color
+ * @property color Defaults to [color_text_600].
  * @property fontSize
  * @property lineHeight
  * @property fontWeight Defaults to [FontWeight.Normal].
- * @property fontFamily Defaults to [sofiaProFontFamily].
+ * @property fontFamily Defaults to [primaryFontFamily].
  * @property fontStyle Defaults to [FontStyle.Normal].
  */
 sealed class HeadlineTextStyle(
-    color: Color,
+    color: Color = color_text_600,
     fontSize: TextUnit,
     lineHeight: TextUnit,
     fontWeight: FontWeight = FontWeight.Normal,
-    fontFamily: FontFamily = sofiaProFontFamily,
-    fontStyle: FontStyle = FontStyle.Normal
+    fontFamily: FontFamily = primaryFontFamily,
+    fontStyle: FontStyle = FontStyle.Normal,
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
 
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 28sp.
-     * @property lineHeight 36sp.
-     * @property fontWeight [FontWeight.SemiBold].
-     */
-    data object H2SemiBold : HeadlineTextStyle(
-        color = color_text_600,
+    data object H1SemiboldSecondary : HeadlineTextStyle(
         fontWeight = FontWeight.SemiBold,
-        fontSize = 28.sp,
-        lineHeight = 36.sp
+        fontSize = DEFAULT_H1_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H1_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily
     )
 
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 24sp.
-     * @property lineHeight 32sp.
-     * @property fontWeight [FontWeight.SemiBold].
-     */
-    data object H3Semibold : HeadlineTextStyle(
-        color = color_text_600,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 24.sp,
-        lineHeight = 32.sp
+    data object H1MediumSecondary : HeadlineTextStyle(
+        fontWeight = FontWeight.Medium,
+        fontSize = DEFAULT_H1_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H1_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily
     )
 
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 22sp.
-     * @property lineHeight 28sp.
-     * @property fontWeight [FontWeight.SemiBold].
-     */
+    data object H2SemiBoldSecondary : HeadlineTextStyle(
+        fontWeight = FontWeight.SemiBold,
+        fontSize = DEFAULT_H2_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H2_LINE_HEIGHT.sp
+    )
+
+    data object H2MediumSecondary : HeadlineTextStyle(
+        fontWeight = FontWeight.Medium,
+        fontSize = DEFAULT_H2_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H2_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily
+    )
+
+    data object H3SemiBold : HeadlineTextStyle(
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 22.sp,
+        lineHeight = 30.sp
+    )
+
+    data object H3SemiboldSecondary : HeadlineTextStyle(
+        fontWeight = FontWeight.SemiBold,
+        fontSize = DEFAULT_H3_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H3_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily,
+    )
+
+    data object H3MediumSecondary : HeadlineTextStyle(
+        color = color_text_600,
+        fontWeight = FontWeight.Medium,
+        fontSize = DEFAULT_H3_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H3_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily,
+    )
+
     data object H4SemiBold : HeadlineTextStyle(
-        color = color_text_600,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 22.sp,
-        lineHeight = 28.sp
-    )
-
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 24sp.
-     * @property lineHeight 28sp.
-     * @property fontWeight [FontWeight.Medium].
-     * @property fontFamily [recoletaFontFamily].
-     */
-    data object H3MediumRecoleta : HeadlineTextStyle(
-        color = color_text_600,
-        fontWeight = FontWeight.Medium,
-        fontSize = 24.sp,
-        fontFamily = recoletaFontFamily,
-        lineHeight = 28.sp
-    )
-
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 22sp.
-     * @property lineHeight 28sp.
-     * @property fontWeight [FontWeight.Medium].
-     * @property fontFamily [recoletaFontFamily].
-     */
-    data object H4MediumRecoleta : HeadlineTextStyle(
-        color = color_text_600,
-        fontWeight = FontWeight.Medium,
-        fontSize = 22.sp,
-        fontFamily = recoletaFontFamily,
-        lineHeight = 28.sp
-    )
-
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 24sp.
-     * @property lineHeight 28sp.
-     * @property fontWeight [FontWeight.Medium].
-     * @property fontFamily [recoletaFontFamily].
-     */
-    data object H3SemiboldRecoleta : HeadlineTextStyle(
-        color = color_text_600,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 24.sp,
-        fontFamily = recoletaFontFamily,
-        lineHeight = 32.sp
-    )
-
-    /**
-     * @property color [color_text_600].
-     * @property fontSize 18sp.
-     * @property lineHeight 24sp.
-     * @property fontWeight [FontWeight.SemiBold].
-     */
-    data object SubtitleSemibold : HeadlineTextStyle(
-        color = color_text_600,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 18.sp,
+        fontSize = 20.sp,
         lineHeight = 24.sp
     )
+
+    data object H4SemiBoldSecondary : HeadlineTextStyle(
+        fontWeight = FontWeight.SemiBold,
+        fontSize = DEFAULT_H4_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H4_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily,
+    )
+
+    data object H4MediumSecondary : HeadlineTextStyle(
+        fontWeight = FontWeight.SemiBold,
+        fontSize = DEFAULT_H4_FONT_SIZE.sp,
+        lineHeight = DEFAULT_H4_LINE_HEIGHT.sp,
+        fontFamily = secondaryFontFamily,
+    )
+
+    companion object {
+        private const val DEFAULT_H1_FONT_SIZE = 24
+        private const val DEFAULT_H1_LINE_HEIGHT = 44
+        private const val DEFAULT_H2_FONT_SIZE = 24
+        private const val DEFAULT_H2_LINE_HEIGHT = 36
+        private const val DEFAULT_H3_FONT_SIZE = 24
+        private const val DEFAULT_H3_LINE_HEIGHT = 28
+        private const val DEFAULT_H4_FONT_SIZE = 22
+        private const val DEFAULT_H4_LINE_HEIGHT = 28
+    }
 }
 
 
