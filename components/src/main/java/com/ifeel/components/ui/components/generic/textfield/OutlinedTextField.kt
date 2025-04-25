@@ -75,11 +75,7 @@ fun OutlinedTextField(
             singleLine = true,
             isError = isError,
             enabled = enabled,
-            textStyle = LocalTextStyle.current.copy(
-                fontSize = 16.sp,
-                fontWeight = FontWeight(400),
-                lineHeight = 24.sp,
-            ),
+            textStyle = BodyTextStyle.Body16Regular.toTextStyle(),
             label = {
                 if (!isFocused && inputText != null && value.isEmpty()) {
                     Text(

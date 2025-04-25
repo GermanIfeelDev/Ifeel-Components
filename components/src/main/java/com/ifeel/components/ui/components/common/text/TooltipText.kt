@@ -42,7 +42,7 @@ fun ToolTipText(text: String, modifier: Modifier = Modifier) {
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 },
-            style = CaptionTextStyle.Caption12Regular.toTextStyle().copy(color = Color.White)
+            style = CaptionTextStyle.CaptionRegular.toTextStyle().copy(color = Color.White)
         )
 
         Icon(

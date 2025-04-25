@@ -163,7 +163,7 @@ private fun ScoreSurveyItemDescription(description: String, modifier: Modifier =
     ) {
         Text(
             text = description,
-            style = CaptionTextStyle.Caption12Regular.toTextStyle()
+            style = CaptionTextStyle.CaptionRegular.toTextStyle()
                 .copy(color = color_brand_primary_800),
             modifier = Modifier.padding(8.dp)
         )

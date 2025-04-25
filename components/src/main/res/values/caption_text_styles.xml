@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Base Caption Style -->
+    <style name="TextStyle.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/color_text_600</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Caption Regular -->
+    <style name="TextStyle.Caption.Regular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Caption SemiBold -->
+    <style name="TextStyle.Caption.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+    <!-- endregion -->
+</resources>

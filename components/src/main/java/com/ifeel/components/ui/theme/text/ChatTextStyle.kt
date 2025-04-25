@@ -10,7 +10,7 @@ import com.ifeel.components.ui.theme.color_text_600
 import com.ifeel.components.ui.theme.primaryFontFamily
 
 /**
- * Sealed class representing different text styles for captions used in the application.
+ * Sealed class representing different text styles for chat used in the application.
  *
  * @property color Defaults to [color_text_600].
  * @property fontSize Defaults to [DEFAULT_FONT_SIZE].
@@ -19,7 +19,7 @@ import com.ifeel.components.ui.theme.primaryFontFamily
  * @property fontFamily Defaults to [primaryFontFamily].
  * @property fontStyle Defaults to [FontStyle.Normal].
  */
-sealed class CaptionTextStyle(
+sealed class ChatTextStyle(
     color: Color = color_text_600,
     fontSize: TextUnit = DEFAULT_FONT_SIZE.sp,
     lineHeight: TextUnit = DEFAULT_LINE_HEIGHT.sp,
@@ -28,12 +28,12 @@ sealed class CaptionTextStyle(
     fontStyle: FontStyle = FontStyle.Normal,
 ) : IfeelTextStyle(color, fontSize, lineHeight, fontWeight, fontFamily, fontStyle) {
 
-    data object CaptionSemibold : CaptionTextStyle(fontWeight = FontWeight.SemiBold)
+    data object ChatSemiBold : ChatTextStyle(fontWeight = FontWeight.SemiBold,)
 
-    data object CaptionRegular : CaptionTextStyle()
+    data object ChatRegular : ChatTextStyle()
 
     companion object {
-        private const val DEFAULT_FONT_SIZE = 12
-        private const val DEFAULT_LINE_HEIGHT = 16
+        private const val DEFAULT_FONT_SIZE = 14
+        private const val DEFAULT_LINE_HEIGHT = 22
     }
 }
