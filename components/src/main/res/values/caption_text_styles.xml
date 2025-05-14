@@ -3,7 +3,6 @@
     <!-- region Base Caption Style -->
     <style name="TextStyle.Caption">
         <item name="android:textSize">12sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:textColor">@color/color_text_600</item>
     </style>
     <!-- endregion -->

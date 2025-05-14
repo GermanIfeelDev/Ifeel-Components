@@ -9,7 +9,6 @@
     <!-- region Subtitle Semibold -->
     <style name="TextStyle.Subtitle.Semibold">
         <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
     <!-- endregion -->
@@ -17,7 +16,6 @@
     <!-- region Subtitle Regular -->
     <style name="TextStyle.Subtitle.Regular">
         <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
     <!-- endregion -->
@@ -25,7 +23,6 @@
     <!-- region Subtitle Semibold Secondary -->
     <style name="TextStyle.Subtitle.SemiboldSecondary">
         <item name="android:textSize">18sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:fontFamily">@font/lora_semibold</item>
     </style>
     <!-- endregion -->
@@ -33,7 +30,6 @@
     <!-- region Subtitle Medium Secondary -->
     <style name="TextStyle.Subtitle.MediumSecondary">
         <item name="android:textSize">18sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:fontFamily">@font/lora_medium</item>
     </style>
     <!-- endregion -->

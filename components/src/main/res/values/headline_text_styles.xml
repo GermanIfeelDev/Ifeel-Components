@@ -10,7 +10,6 @@
     <!-- region H1 Styles -->
     <style name="TextStyle.Headline.H1">
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingExtra">20sp</item>
     </style>
 
     <style name="TextStyle.Headline.H1.SemiboldSecondary">
@@ -25,7 +24,6 @@
     <!-- region H2 Styles -->
     <style name="TextStyle.Headline.H2">
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingExtra">12sp</item>
     </style>
 
     <style name="TextStyle.Headline.H2.SemiBoldSecondary">
@@ -40,7 +38,6 @@
     <!-- region H3 Styles -->
     <style name="TextStyle.Headline.H3">
         <item name="android:textSize">22sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
     </style>
 
     <style name="TextStyle.Headline.H3.SemiBold">
@@ -49,13 +46,11 @@
 
     <style name="TextStyle.Headline.H3.SemiboldSecondary">
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:fontFamily">@font/lora_semibold</item>
     </style>
 
     <style name="TextStyle.Headline.H3.MediumSecondary">
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
         <item name="android:fontFamily">@font/lora_medium</item>
     </style>
     <!-- endregion -->
@@ -63,7 +58,6 @@
     <!-- region H4 Styles -->
     <style name="TextStyle.Headline.H4">
         <item name="android:textSize">20sp</item>
-        <item name="android:lineSpacingExtra">4sp</item>
     </style>
 
     <style name="TextStyle.Headline.H4.SemiBold">
@@ -72,13 +66,11 @@
 
     <style name="TextStyle.Headline.H4.SemiBoldSecondary">
         <item name="android:textSize">22sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:fontFamily">@font/lora_semibold</item>
     </style>
 
     <style name="TextStyle.Headline.H4.MediumSecondary">
         <item name="android:textSize">22sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:fontFamily">@font/lora_semibold</item>
     </style>
     <!-- endregion -->

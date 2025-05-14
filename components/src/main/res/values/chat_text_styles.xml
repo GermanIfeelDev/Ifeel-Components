@@ -3,7 +3,6 @@
     <!-- region Base Chat Style -->
     <style name="TextStyle.Chat">
         <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
         <item name="android:textColor">@color/color_text_600</item>
     </style>
     <!-- endregion -->
