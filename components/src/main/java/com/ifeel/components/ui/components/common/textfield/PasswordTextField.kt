@@ -58,8 +58,8 @@ fun PasswordTextField(
         visualTransformation = if (showInput) VisualTransformation.None else PasswordVisualTransformation(),
         trailingIcon = {
             ToogleIcon(
-                activeIcon = ImageVector.vectorResource(R.drawable.hide_input_ic),
-                inactiveIcon = ImageVector.vectorResource(R.drawable.show_input_ic),
+                activeIcon = ImageVector.vectorResource(R.drawable.show_input_ic),
+                inactiveIcon = ImageVector.vectorResource(R.drawable.hide_input_ic),
                 checked = showInput,
                 onCheckedChange = {
                     showInput = it
