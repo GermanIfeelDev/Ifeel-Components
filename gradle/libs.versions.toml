@@ -24,7 +24,7 @@ compose_ui_util = "1.7.8"
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core_ktx" }
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 
-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version = "1.0.1" }
+constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version = "1.1.1" }
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle_runtime_ktx" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity_compose" }
 
