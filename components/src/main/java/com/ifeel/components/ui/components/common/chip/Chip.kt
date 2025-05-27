@@ -81,6 +81,8 @@ fun IfeelFilterChip(
             selectedLeadingIconColor = Color.White,
         ),
         border = FilterChipDefaults.filterChipBorder(
+            enabled = true,
+            selected = selected,
             borderColor = color_text_300,
             selectedBorderColor = Color.Transparent,
         ),
@@ -113,7 +115,7 @@ internal fun IfeelSuggestionChip(
             disabledContainerColor = color_text_100,
             disabledLabelColor = color_text_600,
         ),
-        border = SuggestionChipDefaults.suggestionChipBorder(disabledBorderColor = Color.Transparent),
+        border = SuggestionChipDefaults.suggestionChipBorder(enabled = false, disabledBorderColor = Color.Transparent),
     )
 }
 
