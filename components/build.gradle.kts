@@ -1,12 +1,13 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
     id("maven-publish")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.ifeel.components"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 23
@@ -30,9 +31,10 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -42,20 +44,22 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
-    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-util:1.7.8")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation(libs.core.ktx)
+
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.material3)
+    implementation(libs.compose.ui.util)
+    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.constraintlayout.compose)
 
     //Coil
-    implementation("io.coil-kt:coil-compose:2.3.0")
-    implementation("io.coil-kt:coil-svg:2.0.0")
+    implementation(libs.coil.compose)
+    implementation(libs.coil.svg)
 }
 
 afterEvaluate {

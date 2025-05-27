@@ -1,0 +1,49 @@
+[versions]
+core_ktx = "1.13.1"
+gradle = "8.9.2"
+kotlin = "2.1.20"
+
+# Core/Android
+desugar_jdk_libs = "2.1.5"
+
+# UI & AndroidX
+lifecycle_runtime_ktx    = "2.6.2"
+activity_compose         = "1.9.0"
+
+# Multimedia
+coil_compose             = "2.3.0"
+coil_svg                 = "2.0.0"
+
+# Compose
+compose_bom              = "2024.05.00"
+compose_ui_util = "1.7.8"
+
+[libraries]
+
+# Core/Android
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core_ktx" }
+desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+
+constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version = "1.0.1" }
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle_runtime_ktx" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity_compose" }
+
+# Multimedia
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil_compose" }
+coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil_svg" }
+
+# Compose
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+material3 = { module = "androidx.compose.material3:material3" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+compose-ui-util = { module = "androidx.compose.ui:ui-util", version.ref = "compose_ui_util" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
