@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.ifeel.components.ui.components.generic.button.PrimaryButton
+import com.ifeel.components.ui.components.generic.button.old.PrimaryButton
 import com.ifeel.components.ui.theme.text.BodyTextStyle
 import com.ifeel.components.ui.theme.text.TitleTextStyle
 

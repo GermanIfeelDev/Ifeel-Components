@@ -25,7 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
-import com.ifeel.components.ui.components.generic.button.PrimaryButton
+import com.ifeel.components.ui.components.generic.button.old.PrimaryButton
 import com.ifeel.components.ui.extension.surface
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_text_400

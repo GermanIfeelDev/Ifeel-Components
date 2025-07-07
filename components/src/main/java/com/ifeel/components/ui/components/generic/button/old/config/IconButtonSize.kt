@@ -1,4 +1,4 @@
-package com.ifeel.components.ui.components.generic.button.config
+package com.ifeel.components.ui.components.generic.button.old.config
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp

@@ -1,7 +1,6 @@
-package com.ifeel.components.ui.components.generic.button
+package com.ifeel.components.ui.components.generic.button.old
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.PaddingValues
@@ -28,20 +27,34 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
-import com.ifeel.components.ui.theme.color_brand_primary_100
+import com.ifeel.components.ui.theme.color_brand_primary_200
+import com.ifeel.components.ui.theme.color_brand_primary_600
 import com.ifeel.components.ui.theme.color_brand_primary_700
-import com.ifeel.components.ui.theme.color_text_300
-import com.ifeel.components.ui.theme.color_white
+import com.ifeel.components.ui.theme.color_brand_secondary_200
+import com.ifeel.components.ui.theme.color_brand_secondary_400
+import com.ifeel.components.ui.theme.color_brand_secondary_600
 import com.ifeel.components.ui.theme.text.ButtonTextStyle
 
+enum class ButtonType {
+    PRIMARY,
+    SECONDARY
+}
+
+enum class ButtonSize(val height: Int, val minWidth: Int, val horizontalPadding: Int, val verticalPadding: Int) {
+    LARGE(height = 44, minWidth = 180, horizontalPadding = 32, verticalPadding = 8),
+    MEDIUM(height = 40, minWidth = 120, horizontalPadding = 16, verticalPadding = 10),
+    SMALL(height = 36, minWidth = 60, horizontalPadding = 16, verticalPadding = 8)
+}
+
 @Composable
-fun OutlineButton(
+fun PrimaryButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes iconResource: Int? = null,
     contentAlignment: Alignment.Horizontal = Alignment.Start,
     isEnabled: Boolean = true,
+    buttonType: ButtonType = ButtonType.PRIMARY,
     buttonSize: ButtonSize = ButtonSize.LARGE
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -54,15 +67,14 @@ fun OutlineButton(
             .height(buttonSize.height.dp),
         enabled = isEnabled,
         shape = RoundedCornerShape(6.dp),
-        colors = getButtonColors(isPressed),
-        border = BorderStroke(1.dp, getBorderColor(isEnabled)),
+        colors = getButtonColors(buttonType, isPressed),
         interactionSource = interactionSource,
         contentPadding = PaddingValues(
             horizontal = buttonSize.horizontalPadding.dp,
             vertical = buttonSize.verticalPadding.dp
         )
     ) {
-        TextWithIcon(text = text, iconResource = iconResource, contentAlignment = contentAlignment)
+        TextWithIcon(text = text, iconResource = iconResource, contentAlignment = contentAlignment, buttonSize = buttonSize)
     }
 }
 
@@ -71,6 +83,7 @@ private fun TextWithIcon(
     text: String,
     @DrawableRes iconResource: Int? = null,
     contentAlignment: Alignment.Horizontal = Alignment.Start,
+    buttonSize: ButtonSize,
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         when (contentAlignment) {
@@ -82,14 +95,14 @@ private fun TextWithIcon(
                 )
                 Text(
                     text = text,
-                    style = ButtonTextStyle.ButtonDefaultRegular.toTextStyle()
+                    style = getButtonTextStyle(buttonSize).toTextStyle()
                 )
             }
 
             Alignment.End -> {
                 Text(
                     text = text,
-                    style = ButtonTextStyle.ButtonDefaultRegular.toTextStyle()
+                    style = getButtonTextStyle(buttonSize).toTextStyle()
                 )
                 if (iconResource != null) Icon(
                     imageVector = ImageVector.vectorResource(id = iconResource),
@@ -102,29 +115,39 @@ private fun TextWithIcon(
 }
 
 @Composable
-private fun getBorderColor(isEnabled: Boolean): Color {
-    return if(isEnabled) color_brand_primary_700 else color_text_300
+private fun getButtonTextStyle(buttonSize: ButtonSize): ButtonTextStyle {
+    return when (buttonSize) {
+        ButtonSize.LARGE -> ButtonTextStyle.ButtonLargeSemiBold
+        ButtonSize.MEDIUM -> ButtonTextStyle.ButtonDefaultSemiBold
+        ButtonSize.SMALL -> ButtonTextStyle.ButtonSmallSemiBold
+    }
 }
 
 @Composable
-private fun getButtonColors(isPressed: Boolean): ButtonColors {
-    val containerColor = if (isPressed) color_brand_primary_100 else color_white
+private fun getButtonColors(buttonType: ButtonType, isPressed: Boolean): ButtonColors {
+    val containerColor = when (buttonType) {
+        ButtonType.PRIMARY -> if (isPressed) color_brand_primary_700 else color_brand_primary_600
+        ButtonType.SECONDARY -> if (isPressed) color_brand_secondary_600 else color_brand_secondary_400
+    }
 
-    val disabledContainerColor = color_white
+    val disabledContainerColor = when (buttonType) {
+        ButtonType.PRIMARY -> color_brand_primary_200
+        ButtonType.SECONDARY -> color_brand_secondary_200
+    }
 
     return ButtonDefaults.buttonColors(
         containerColor = containerColor,
         disabledContainerColor = disabledContainerColor,
-        contentColor = color_brand_primary_700,
-        disabledContentColor = color_text_300
+        contentColor = Color.White,
+        disabledContentColor = Color.White
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun OutlineButtonPreviewEnabled() {
+private fun PrimaryButtonPreviewEnabled() {
     IfeelComponentsTheme {
-        OutlineButton(
+        PrimaryButton(
             text = "Add",
             onClick = { },
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
@@ -135,9 +158,9 @@ private fun OutlineButtonPreviewEnabled() {
 
 @Preview(showBackground = true)
 @Composable
-private fun OutlineButtonPreviewDisabled() {
+private fun PrimaryButtonPreviewDisabled() {
     IfeelComponentsTheme {
-        OutlineButton(
+        PrimaryButton(
             text = "Disabled",
             onClick = { },
             modifier = Modifier
@@ -148,4 +171,34 @@ private fun OutlineButtonPreviewDisabled() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+private fun PrimaryButtonPreviewColorAccent() {
+    IfeelComponentsTheme {
+        PrimaryButton(
+            text = "Disabled",
+            onClick = { },
+            iconResource = R.drawable.supporting_text_info_ic,
+            contentAlignment = Alignment.End,
+            buttonType = ButtonType.SECONDARY,
+            buttonSize = ButtonSize.MEDIUM,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PrimaryButtonPreviewColorAccentDisabled() {
+    IfeelComponentsTheme {
+        PrimaryButton(
+            text = "Disabled",
+            onClick = { },
+            iconResource = R.drawable.supporting_text_info_ic,
+            contentAlignment = Alignment.End,
+            isEnabled = false,
+            buttonType = ButtonType.SECONDARY,
+            buttonSize = ButtonSize.SMALL,
+        )
+    }
+}
 

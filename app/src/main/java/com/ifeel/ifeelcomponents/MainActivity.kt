@@ -24,8 +24,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
 import com.ifeel.components.ui.components.common.textfield.PasswordTextField
-import com.ifeel.components.ui.components.generic.button.ButtonType
-import com.ifeel.components.ui.components.generic.button.PrimaryButton
+import com.ifeel.components.ui.components.generic.button.old.ButtonType
+import com.ifeel.components.ui.components.generic.button.old.PrimaryButton
 import com.ifeel.components.ui.components.generic.spinner.Spinner
 import com.ifeel.components.ui.components.generic.textfield.EditableTextField
 import com.ifeel.components.ui.components.generic.textfield.OutlinedTextField

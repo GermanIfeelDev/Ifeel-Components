@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
-import com.ifeel.components.ui.components.generic.button.IconButton
+import com.ifeel.components.ui.components.generic.button.old.IconButton
 
 @Composable
 internal fun SendMessageButton(

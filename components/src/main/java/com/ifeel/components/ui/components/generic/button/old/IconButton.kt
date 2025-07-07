@@ -1,4 +1,4 @@
-package com.ifeel.components.ui.components.generic.button
+package com.ifeel.components.ui.components.generic.button.old
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -6,7 +6,6 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonColors
@@ -15,14 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ifeel.components.R
-import com.ifeel.components.ui.components.generic.button.config.IconButtonSize
-import com.ifeel.components.ui.components.generic.button.config.IconButtonType
+import com.ifeel.components.ui.components.generic.button.old.config.IconButtonSize
+import com.ifeel.components.ui.components.generic.button.old.config.IconButtonType
 import com.ifeel.components.ui.theme.IfeelComponentsTheme
 import com.ifeel.components.ui.theme.color_brand_primary_200
 import com.ifeel.components.ui.theme.color_brand_primary_600
@@ -30,6 +28,7 @@ import com.ifeel.components.ui.theme.color_brand_primary_700
 import com.ifeel.components.ui.theme.color_brand_primary_light_200
 import com.ifeel.components.ui.theme.color_text_300
 
+@Deprecated("Use new design system icons in IfeelIconButton, this will be removed in the future")
 @Composable
 fun IconButton(
     onClick: () -> Unit,
